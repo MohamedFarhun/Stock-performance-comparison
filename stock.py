@@ -32,3 +32,6 @@ symbol = 'AMD'
 start = '2021-08-20'
 end = '2022-09-01'
 dataset = yf.download(symbol,start,end)
+weekly_Monday = dataset.asfreq('W-Mon')
+fig, ax = plt.subplots(figsize=(16, 4))
+weekly_Monday['Adj Close'].plot(title='Weekly Stock Adj Close for Monday', ax=ax)
