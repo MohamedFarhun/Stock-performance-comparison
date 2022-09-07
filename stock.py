@@ -3,7 +3,7 @@ import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
 
-st.title('Stock Market Prediction')
+st.title('Stock performance comparison')
 
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD')
 
