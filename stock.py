@@ -37,4 +37,4 @@ st.title('Weekly Stock Adj Close for Monday')
 weekly_Monday = dataset.asfreq('W-Mon')
 fig, ax = plt.subplots(figsize=(16, 4))
 st.line_chart(dataset)
-def __init__(tickers, name='TSLA')
+def __init__(tickers, name='TSLA'):
