@@ -28,10 +28,11 @@ if len(dropdown)>0:
    st.bar_chart(df)
     
 st.title('Stock time series analysis')
-symbol = 'AMD'
-start = '2022-05-20'
-end = pd.to_datetime('today')
-dataset = yf.download(symbol,start,end)
+tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
+dropdown1=st.multiselect('Pick your assets',tickers)
+start=st.date_input('Start',value =pd.to_datetime('2022-07-03'))
+end=st.date_input('End',value=pd.to_datetime('today'))
+dataset = yf.download(dropdown1,start,end)
 weekly_Monday = dataset.asfreq('W-Mon')
 fig, ax = plt.subplots(figsize=(16, 4))
 weekly_Monday['Adj Close'].plot(title='Weekly Stock Adj Close for Monday', ax=ax)
