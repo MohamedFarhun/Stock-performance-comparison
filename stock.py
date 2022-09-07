@@ -28,8 +28,7 @@ if len(dropdown)>0:
    st.bar_chart(df)
     
 st.title('Stock time series analysis')
-tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
-df=yf.download(dropdown,start,end)['Adj Close']
-business_monthly = df.resample('BM')
-fig, ax = plt.subplots(figsize=(16, 4))
-business_monthly['Adj Close'].plot(title='Stock Close Price monthly', ax=ax)
+symbol = 'AMD'
+start = '2021-08-20'
+end = '2022-09-01'
+dataset = yf.download(symbol,start,end)
