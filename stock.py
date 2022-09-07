@@ -7,7 +7,7 @@ st.title('Stock performance comparison')
 
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
 
-dropdown=st.multiselect('Pick your assets',tickers)
+dropdown=st.multiselect('Pick your assets',tickers,key=1)
 
 start=st.date_input('Start',value =pd.to_datetime('2022-07-03'))
 end=st.date_input('End',value=pd.to_datetime('today'))
@@ -29,7 +29,7 @@ if len(dropdown)>0:
     
 st.title('Stock time series analysis')
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
-dropdown1=st.multiselect('Pick your assets',tickers)
+dropdown1=st.multiselect('Pick your assets',tickers,key=2)
 start=st.date_input('Start',value =pd.to_datetime('2022-07-03'))
 end=st.date_input('End',value=pd.to_datetime('today'))
 dataset = yf.download(dropdown1,start,end)
