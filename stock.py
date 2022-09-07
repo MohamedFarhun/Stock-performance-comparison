@@ -26,4 +26,3 @@ if len(dropdown)>0:
    st.line_chart(df)
    st.area_chart(df)
    st.bar_chart(df)
-   st.pydeck_chart(df)
