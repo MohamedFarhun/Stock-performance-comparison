@@ -29,7 +29,7 @@ if len(dropdown)>0:
     
 st.title('Stock time series analysis')
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
-tickers=ticker.Autolocater()
+tickers=tickers.Autolocater()
 dropdown1=st.multiselect('Pick your assets',tickers,key=2)
 start=st.date_input('Start',value =pd.to_datetime('2022-07-12'))
 end=st.date_input('End',value=pd.to_datetime('2022-09-08'))
