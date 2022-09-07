@@ -25,4 +25,4 @@ if len(dropdown)>0:
    st.dataframe(df)
    st.line_chart(df)
    st.area_chart(df)
-   st.altair_chart(df)
+   st.map(df)
