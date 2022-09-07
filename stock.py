@@ -26,3 +26,8 @@ if len(dropdown)>0:
    st.line_chart(df)
    st.area_chart(df)
    st.bar_chart(df)
+    
+ st.title('Stock time series analysis')
+ business_monthly = df.resample('BM')
+ fig, ax = plt.subplots(figsize=(16, 4))
+business_monthly['Adj Close'].plot(title='Stock Close Price monthly', ax=ax)
