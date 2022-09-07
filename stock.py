@@ -34,6 +34,7 @@ ax.set_title("Measures of Center")
 ax.set_xlabel("Date")
 ax.set_ylabel("Price")
 ax.scatter(months,data)
+import statistics as st
 ax.plot([st.mean(data)], [st.mean(data)], color='r', marker="o", markersize=15)
 ax.plot([st.median(data)], [st.median(data)], color='g', marker="o", markersize=15)
 plt.annotate("Mean", (st.mean(data), st.mean(data)+0.3), color='r')
