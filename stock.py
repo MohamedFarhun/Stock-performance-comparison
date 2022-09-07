@@ -29,8 +29,8 @@ if len(dropdown)>0:
     
 st.title('Stock time series analysis')
 symbol = 'AMD'
-start = '2021-08-20'
-end = '2022-09-01'
+start = '2022-05-20'
+end = pd.to_datetime('today')
 dataset = yf.download(symbol,start,end)
 weekly_Monday = dataset.asfreq('W-Mon')
 fig, ax = plt.subplots(figsize=(16, 4))
