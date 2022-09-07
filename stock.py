@@ -29,7 +29,6 @@ if len(dropdown)>0:
     
 st.title('Stock time series analysis')
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
-dropdown=st.multiselect('Pick your assets',tickers)
 df=yf.download(dropdown,start,end)['Adj Close']
 business_monthly = df.resample('BM')
 fig, ax = plt.subplots(figsize=(16, 4))
