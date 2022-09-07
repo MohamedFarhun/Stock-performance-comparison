@@ -22,7 +22,7 @@ def relativeret(df):
 if len(dropdown)>0:
    df=relativeret(yf.download(dropdown,start,end)['Adj Close'])
    st.header('Returns of {}'.format(dropdown))
-   st.data_frame(df)
+   st.dataframe(df)
    st.line_chart(df)
    st.area_chart(df)
    st.pyplot(df)
