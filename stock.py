@@ -32,9 +32,9 @@ tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
 dropdown1=st.multiselect('Pick your assets',tickers,key=2)
 start=st.date_input('Start',value =pd.to_datetime('2022-07-12'))
 end=st.date_input('End',value=pd.to_datetime('2022-09-08'))
+def __init__(tickers, name='TSLA'):
 dataset = yf.download(dropdown1,start,end)['Adj Close']
 st.title('Weekly Stock Adj Close for Monday')
 weekly_Monday = dataset.asfreq('W-Mon')
 fig, ax = plt.subplots(figsize=(16, 4))
 st.line_chart(dataset)
-def __init__(tickers, name='TSLA'):
