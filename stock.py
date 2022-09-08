@@ -4,6 +4,7 @@ import pandas as pd
 from fbprophet import Prophet
 import matplotlib.pyplot as plt
 import datetime as dt
+import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
