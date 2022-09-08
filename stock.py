@@ -142,4 +142,5 @@ for ticker in tickers:
     break;
 rets = df.pct_change()
 rets=rets.std()
-st.bar_chart(rets)
+color=['red', 'blue', 'green', 'orange', 'cyan']
+st.bar_chart(rets,color)
