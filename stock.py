@@ -126,6 +126,6 @@ df= yf.download(dropdown,start,end)
 df_train = df[:740]
 df_test = df[740:]
 mdl = Prophet(interval_width=0.95,daily_seasonality=True,yearly_seasonality=True)
-df.rename(columns={'Date':'ds','Open':'open''High':'high','Low':'low','Close':'close','Adj Close':'adj close','Volume':'volume'},  inplace=True)
+df.rename(columns={'Date':'ds','Open':'open','High':'high','Low':'low','Close':'close','Adj Close':'y','Volume':'volume'},  inplace=True)
 mdl.fit(df_train)
 
