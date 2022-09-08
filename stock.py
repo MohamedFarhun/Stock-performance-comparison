@@ -2,6 +2,7 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
+%matplotlib inline
 import datetime as dt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
