@@ -67,3 +67,4 @@ Start = 5000
 dataset['Shares'] = 0
 dataset['PnL'] = 0
 dataset['End'] = Start
+st.line_chart(dataset)
