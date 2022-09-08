@@ -153,15 +153,15 @@ chart_data = pd.DataFrame(np.random.randn(50, 2),columns=["Risk","Returns"])
 st.bar_chart(chart_data)
 
 st.title('Stock Covariance & Correlations')
-tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
+tickers=['TSLA':0,'AAPL':1,'MSFT':2,'BTC-USD':3,'ETH-USD':4,'AMD':5,'AMZN:6']
 option = st.selectbox('Choose any one to have analysis',('TSLA', 'BTC-USD', 'ETH-USD'))
 st.write('You selected:', option)
 start = st.date_input('Start',dt.date(2021,8, 18))
 end = st.date_input('end',dt.date(2022,8, 19))
 dataset= yf.download(dropdown,start,end)['Adj Close']
 stocks_returns = np.log(dataset / dataset.shift(1))
-variance=ticker['TSLA'].var()
-variance=ticker('BTC-USD').var()
-variance=ticker('ETH-USD').var()
+variance = stocks_returns[0].var()
+variance = stocks_returns[3].var()
+variance = stocks_returns[4].var()
 st.text('Variance of {}')
 st.text(variance)
