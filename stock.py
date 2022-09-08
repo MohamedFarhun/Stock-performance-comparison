@@ -7,7 +7,7 @@ st.title('Stock performance comparison')
 
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
 
-dropdown=st.multiselect('Pick your assets',tickers,key=1)
+dropdown=st.multiselect('Pick your assets',tickers,key=1,default='TSLA')
 
 start=st.date_input('Start',value =pd.to_datetime('2022-07-03'))
 end=st.date_input('End',value=pd.to_datetime('today'))
