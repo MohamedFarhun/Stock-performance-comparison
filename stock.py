@@ -125,4 +125,11 @@ end = st.date_input('end',dt.date(2022,8, 17))
 df= yf.download(dropdown,start,end)
 df_train = df[:740]
 df_test = df[740:]
+mdl = Prophet(interval_width=0.95,daily_seasonality=True,yearly_seasonality=True)
+mdl.fit(df_train)
+future = mdl.make_future_dataframe(periods=24, freq='MS')
+forecast = mdl.predict(future)
+forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+mdl=mdl.plot(forecast);
+st.line_chart(mdl)
 
