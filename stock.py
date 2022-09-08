@@ -183,5 +183,4 @@ dataset['Returns'] = np.log(dataset['Adj Close'] / dataset['Adj Close'].shift(1)
 dataset = dataset.dropna()
 X = dataset['Open']
 Y = dataset['Adj Close']
-st.text('Open')
 st.line_chart(X)
