@@ -64,7 +64,7 @@ start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
 dataset= yf.download(dropdown,start,end)['Adj Close']
 Start = 5000
-dataset['Shares'] = 300
+dataset['Shares'] = 3
 dataset['PnL'] = 42
 dataset['End'] = Start
 dataset['Adj Close']=300
@@ -73,9 +73,9 @@ dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['Adj Close'
 dataset['End'] = dataset['End'] + dataset['PnL']
 st.line_chart(dataset)
 st.subheader("Financial Analysis")
-Shares = 300
-Purchase_Price = dataset['Adj Close']
-Current_Value = dataset['Adj Close']
+Shares = 3
+Purchase_Price =300
+Current_Value = 4000
 Purchase_Cost = Shares * Purchase_Price
 Current_Value = Shares * Current_Value
 Profit_or_Loss = Current_Value - Purchase_Cost 
