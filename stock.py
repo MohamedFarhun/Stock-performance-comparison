@@ -140,4 +140,5 @@ for ticker in tickers:
     df = pd.merge(df, pd.DataFrame(yf.download(tickers, fields='price', start=start, end=end)['Adj Close']), right_index=True, left_index=True, how='outer')
     data.append(ticker)
 rets = df.pct_change()
-st.bar_chart(rets.columns, rets.std())
+rets=rets.std()
+st.bar_chart(rets)
