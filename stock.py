@@ -125,6 +125,8 @@ end = st.date_input('end',dt.date(2022,8, 17))
 df= yf.download(dropdown,start,end)
 df_train = df[:740]
 df_test = df[740:]
+df2 = pd.DataFrame(df)
+df2.rename(columns = {'date':'ds','Adj Close':'y'}, inplace = True)
 mdl = Prophet(interval_width=0.95,daily_seasonality=True,yearly_seasonality=True)
 mdl.fit(df_train)
 
