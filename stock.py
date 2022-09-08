@@ -92,6 +92,6 @@ fit=lr.fit(x_train, y_train)
 st.text(fit)
 x_test=df[1:5]
 y_test=df['Adj Close']
-y_test = self.predict(x_test)
+y_test = lr.predict(x_test)
 score=lr.score(x_test, y_test)
 st.text(score)
