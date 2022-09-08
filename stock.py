@@ -56,7 +56,6 @@ start = st.date_input('Start',datetime.date(2021,8, 13))
 end = st.date_input('end',datetime.date(2022,8, 14))
 dataset = yf.download(dropdown,start,end)['Adj Close']
 plt.figure(figsize=(15,10))
-plt.plot(dataset['Adj Close'])
 plt.title(symbol + ' Closing Price Chart')
 plt.xlabel('Date')
 plt.ylabel('Price')
