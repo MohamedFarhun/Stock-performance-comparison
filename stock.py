@@ -55,26 +55,10 @@ dropdown=st.multiselect('Pick your assets',tickers,key=4,default='TSLA')
 start = dt.date.today() - dt.timedelta(days = 365*5)
 end = dt.date.today()
 data = yf.download(dropdown,start,end)['Adj Close']
-plt.figure(figsize=(15,10))
-plt.title(tickers)
-plt.xlabel('Date')
-plt.ylabel('Price')
-plt.grid(True)
-plt.show()
 st.line_chart(data)
-
-def stockret(df):
-    rel=df.pct_change().dropna()
 
 st.title('Stock Time Returns Analysis')
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
 dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 start = dt.date.today() - dt.timedelta(days = 365*5)
 end = dt.date.today()
-df=stockret(yf.download(dropdown,start,end)['Adj Close'])
-monthly = df.asfreq('BM')
-monthly['Month_Name'] = monthly.index.strftime("%b")
-monthly['Month_Name_Year'] = monthly.index.strftime("%b-%Y")
-monthly = monthly.reset_index()
-monthly['Month'] = monthly["Date"].dt.month
-st.line_chart(df)
