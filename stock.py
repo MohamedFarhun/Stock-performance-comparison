@@ -62,3 +62,12 @@ tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
 dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 start = dt.date.today() - dt.timedelta(days = 365*5)
 end = dt.date.today()
+data = yf.download(dropdown,start,end)['Adj Close']
+st.title('Stock yearly return')
+monthly = df.asfreq('BM')
+monthly['Returns'] = df['Adj Close'].pct_change().dropna()
+monthly['Month_Name'] = monthly.index.strftime("%b")
+monthly['Month_Name_Year'] = monthly.index.strftime("%b-%Y")
+monthly = monthly.reset_index()
+monthly['Month'] = monthly["Date"].dt.month
+st.line_chart(data)
