@@ -80,6 +80,7 @@ Purchase_Cost = Shares * Purchase_Price
 Current_Value = Shares * Current_Value
 Profit_or_Loss = Current_Value - Purchase_Cost 
 st.header('Returns of {}'.format(dropdown))
+percentage_gain_or_loss = (Profit_or_Loss/Current_Value) * 100
 print('Percentage gain or loss: %s %%' % round(percentage_gain_or_loss,2))
 print('Percentage of returns: %s %%' % round(percentage_returns,2))
 print('Net gains or losses: %s %%' % round(net_gains_or_losses,2))
