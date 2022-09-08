@@ -148,7 +148,7 @@ st.text('Standard deviation')
 st.bar_chart(rets)
 st.text('Mean')
 st.bar_chart(rets1)
-st.head('Risk vs Return')
+st.header('Risk vs Return')
 ind = np.arange(5)
 width = 0.35       
 st.bar_chart(ind, df.mean(), width, color = 'g', label='Average of Returns')
