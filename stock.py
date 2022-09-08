@@ -67,6 +67,7 @@ end = dt.date.today()
 dataset= yf.download(dropdown,start,end)['Adj Close']
 Start = 5000
 Adjclose=dataset['Adj Close']
+Adj = dataset.get(Adjclose, 0)
 dataset['Shares'] = 0
 dataset['PnL'] = 0
 dataset['End'] = Start
