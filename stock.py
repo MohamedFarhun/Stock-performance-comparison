@@ -73,10 +73,11 @@ dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['Adj Close'
 dataset['End'] = dataset['End'] + dataset['PnL']
 st.line_chart(dataset)
 
-st.title('Profit and Loss in Trading')
+st.title('Stock Price Predictions')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
 dropdown=st.multiselect('Pick your assets',tickers,key=6,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 14))
 end = st.date_input('end',dt.date(2022,8, 15))
 dataset= yf.download(dropdown,start,end)['Adj Close']
-
+X_train = df[df.columns[1:5]] 
+Y_train = df['Adj Close']
