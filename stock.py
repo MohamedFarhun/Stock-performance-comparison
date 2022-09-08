@@ -72,15 +72,3 @@ dataset['Shares'] = dataset['End'] / dataset['Adj Close']
 dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['Adj Close'])
 dataset['End'] = dataset['End'] + dataset['PnL']
 st.line_chart(dataset)
-st.subheader("Financial Analysis")
-Shares = 3
-Purchase_Price =300
-Current_Value = 4000
-Purchase_Cost = Shares * Purchase_Price
-Current_Value = Shares * Current_Value
-Profit_or_Loss = Current_Value - Purchase_Cost 
-st.header('Returns of {}'.format(dropdown))
-percentage_gain_or_loss = (Profit_or_Loss/Current_Value) * 100
-percentage_returns = (Current_Value - Purchase_Cost)/ Purchase_Cost 
-st.text('Percentage gain or loss: %s %%' % round(percentage_gain_or_loss,2))
-st.text('Percentage of returns: %s %%' % round(percentage_returns,2))
