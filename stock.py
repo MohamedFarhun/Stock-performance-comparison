@@ -163,6 +163,9 @@ stocks_returns = np.log(dataset / dataset.shift(1))
 variance= stocks_returns.var()
 st.text('Variance:-')
 st.text(variance)
+standard_deviation= stocks_returns.var()*250
+st.text('Standard Deviation:-')
+st.text(standard_deviation)
 cov_matrix = stocks_returns.cov()*250
 st.text('Covariance:-')
 st.text(cov_matrix)
