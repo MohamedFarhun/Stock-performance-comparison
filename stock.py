@@ -88,5 +88,5 @@ x_train,x_test,y_train,y_test=train_test_split(x_train,x_train,test_size=0.1,ran
 x_train=x_train.reshape(-1,1)
 y_train=y_train.reshape(-1,1)
 lr = LinearRegression()
-lr.fit(X_train, Y_train)
-lr.score(X_test, Y_test)
+lr.fit(x_train, y_train)
+lr.score(x_test, y_test)
