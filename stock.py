@@ -81,3 +81,8 @@ end = st.date_input('end',dt.date(2022,8, 15))
 df= yf.download(dropdown,start,end)['Adj Close']
 X_train = df[1:5]
 Y_train = df[5]
+X_train = X_train.values[:-1]
+Y_train = Y_train.values[1:]
+lr = LinearRegression()
+lr.fit(X_train, Y_train)
+lr.score(X_test, Y_test)
