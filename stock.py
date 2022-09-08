@@ -54,7 +54,7 @@ tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
 dropdown=st.multiselect('Pick your assets',tickers,key=4,default='TSLA')
 start = st.date_input('Start',datetime.date(2021,8, 13))
 end = st.date_input('end',datetime.date(2022,8, 14))
-dataset = yf.download(dropdown,start,end)['Adj Close']
+dataset = yf.download((dropdown,start,end)['Adj Close'])
 plt.figure(figsize=(15,10))
 plt.plot(dataset['Adj Close'])
 plt.title(symbol + ' Closing Price Chart')
