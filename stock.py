@@ -185,12 +185,9 @@ dataset = dataset.dropna()
 X = dataset['Open']
 Y = dataset['Adj Close']
 df = pd.DataFrame(
-     np.random.randn(200, 3),
-     columns=['a', 'b','c'])
-
-c = alt.Chart(df).mark_circle().encode(
-     x='a', y='b', size='c', color='c', tooltip=['a', 'b','c'])
-
+     np.array(200, 2),
+     columns=['Open', 'Adj Close'])
+c = alt.Chart(df).mark_circle().encode(x='a', y='b', size='c', color='c', tooltip=['a', 'b'])
 st.altair_chart(c, use_container_width=True)
 X_train,X_test,y_train,y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
 X_train = np.array(X_train).reshape(-1,1)
@@ -198,6 +195,7 @@ y_train = np.array(y_train).reshape(-1,1)
 X_test = np.array(X_test).reshape(-1,1)
 y_test = np.array(y_test).reshape(-1,1)
 linregression=LinearRegression()
+st.text(linregression)
 linregression.fit(X_train,y_train)
 y_pred = linregression.predict(X_test)
 intercept=linregression.intercept_
