@@ -65,7 +65,6 @@ end = dt.date.today()
 data = yf.download(dropdown,start,end)['Adj Close']
 st.title('Stock yearly return')
 monthly = df.asfreq('BM')
-monthly['Returns'] = df['Adj Close'].pct_change().dropna()
 monthly['Month_Name'] = monthly.index.strftime("%b")
 monthly['Month_Name_Year'] = monthly.index.strftime("%b-%Y")
 monthly = monthly.reset_index()
