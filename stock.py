@@ -173,3 +173,14 @@ st.text('Correlation:-')
 corr_matrix = stocks_returns.corr()*250
 st.text(corr_matrix)
 
+st.title('Stock Investment Portfolio-Risk and Return')
+tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
+dropdown=st.multiselect('Pick your assets',tickers,key=9,default='TSLA')
+start = st.date_input('Start',dt.date(2021,8, 18))
+end = st.date_input('end',dt.date(2022,8, 19))
+dataset= yf.download(dropdown,start,end)
+dataset['Returns'] = np.log(dataset['Adj Close'] / dataset['Adj Close'].shift(1))
+dataset = dataset.dropna()
+X = dataset['Open']
+Y = dataset['Adj Close']
+st.map(X,Y)
