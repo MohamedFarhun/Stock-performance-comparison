@@ -2,7 +2,6 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
-%matplotlib inline
 import datetime as dt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
@@ -104,7 +103,7 @@ dropdown=st.multiselect('Pick your assets',tickers,key=6,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 15))
 end = st.date_input('end',dt.date(2022,8, 16))
 df= yf.download(dropdown,start,end)
-hist=df["Adj Close"].pct_change().hist(bins=50, histtype='stepfilled', alpha=0.5)
+hist=df["Adj Close"].pct_change().bar(bins=50, histtype='stepfilled', alpha=0.5)
 Adjclose=df["Adj Close"].pct_change().std()
 st.bar_chart(hist)
 st.text(Adjclose)
