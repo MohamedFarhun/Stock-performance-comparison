@@ -141,5 +141,5 @@ for ticker in tickers:
     data.append(ticker)
 rets = df.pct_change(periods=3)
 corr = rets.corr()
-st.scatter_plot(corr)
+st.map(corr)
 
