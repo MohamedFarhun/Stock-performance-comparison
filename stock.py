@@ -78,10 +78,9 @@ tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
 dropdown=st.multiselect('Pick your assets',tickers,key=6,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 14))
 end = st.date_input('end',dt.date(2022,8, 15))
-df= yf.download(dropdown,start,end)['Adj Close']
+df= yf.download(dropdown,start,end)
 X_train = df[1:5]
 Y_train = df[5]
-Y_train=int(float(Y_train))
 X_train = X_train.values[:-1]
 Y_train = Y_train.values[1:]
 lr = LinearRegression()
