@@ -163,3 +163,7 @@ stocks_returns = np.log(dataset / dataset.shift(1))
 cov_matrix = stocks_returns.cov()*250
 st.text('Covariance:-')
 st.text(cov_matrix)
+st.text('Correlation:-')
+corr_matrix = stocks_returns.corr()*250
+st.text(corr_matrix)
+
