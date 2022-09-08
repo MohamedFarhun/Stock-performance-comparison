@@ -63,11 +63,11 @@ dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 start = dt.date.today() - dt.timedelta(days = 365*5)
 end = dt.date.today()
 dataset= yf.download(dropdown,start,end)['Adj Close']
-dataset = dataset.get(tickers, 0)
 Start = 5000
 dataset['Shares'] = 0
 dataset['PnL'] = 0
 dataset['End'] = Start
+dataset['Adj Close']=dataset
 dataset['Shares'] = dataset['End'] / dataset['Adj Close']
 dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['Adj Close'])
 dataset['End'] = dataset['End'] + dataset['PnL']
