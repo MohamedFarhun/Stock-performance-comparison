@@ -63,7 +63,7 @@ dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 start = dt.date.today() - dt.timedelta(days = 365*5)
 end = dt.date.today()
 dataset= yf.download(dropdown,start,end)['Adj Close']
-dataset_series=pd.series(list(dataset))
+dataset_series=pd.Series(list(dataset))
 Start = 5000
 dataset['Shares'] = 0
 dataset['PnL'] = 0
