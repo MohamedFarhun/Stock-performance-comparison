@@ -185,11 +185,11 @@ dataset = dataset.dropna()
 X = dataset['Open']
 Y = dataset['Adj Close']
 df = pd.DataFrame(
-     np.random.randn(200, 3),
-     columns=['a', 'b', 'c'])
+     np.random.randn(200, 2),
+     columns=['a', 'b'])
 
 c = alt.Chart(df).mark_circle().encode(
-     x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c'])
+     x='a', y='b', size='c', color='c', tooltip=['a', 'b'])
 
 st.altair_chart(c, use_container_width=True)
 X_train,X_test,y_train,y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
