@@ -127,7 +127,7 @@ df_train = df[:740]
 df_test = df[740:]
 mdl = Prophet(interval_width=0.95,daily_seasonality=True,yearly_seasonality=True)
 df['Adj Close'].plot(figsize=(12,8))
-df = df.rename((columns{'Date':'ds', 'Adj Close':'y'}))
+df = pd.rename(columns={'Date':'ds', 'Adj Close':'y'})
 mdl.fit(df_train)
 future = mdl.make_future_dataframe(periods=24, freq='MS')
 forecast = mdl.predict(future)
