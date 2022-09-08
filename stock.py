@@ -66,13 +66,11 @@ start = dt.date.today() - dt.timedelta(days = 365*5)
 end = dt.date.today()
 dataset= yf.download(dropdown,start,end)['Adj Close']
 Start = 5000
-Adjclose=dataset['Adj Close']
-Adj = dataset.get(Adjclose, 0)
-dataset['Shares'] = 0
-dataset['PnL'] = 0
+dataset['Shares'] = 300
+dataset['PnL'] = 42
 dataset['End'] = Start
 dataset['Adj Close']=300
-dataset['Shares'] = Start.shift(1) / Adjclose.shift(1)
-dataset['PnL'] = dataset['Shares'] * (Adjclose- Adjclose.shift(1))
-dataset['End'] =Start.shift(1)+ dataset['PnL']
+dataset['Shares'] = dataset['End'] / dataset['Adj Close']
+dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['Adj Close'])
+dataset['End'] = dataset['End'] + dataset['PnL']
 st.line_chart(dataset)
