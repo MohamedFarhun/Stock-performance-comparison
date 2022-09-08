@@ -26,6 +26,8 @@ entrypoints==0.4
 
 fonttools==4.37.1
 
+fbprophet==0.7.1
+
 gitdb==4.0.9
 
 GitPython==3.1.27
