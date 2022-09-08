@@ -84,6 +84,7 @@ Y_train = df['Adj Close']
 X_train = X_train.values[:-1]
 Y_train = Y_train.values[1:]
 lr = LinearRegression()
+X_train=X_train.reshape(-1,1)
 Y_train=Y_train.reshape(-1,1)
 lr.fit(X_train, Y_train)
 lr.score(X_test, Y_test)
