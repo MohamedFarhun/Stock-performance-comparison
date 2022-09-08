@@ -127,3 +127,18 @@ df= yf.download(dropdown,start,end)
 Price= pd.DataFrame(np.log(df['Adj Close']))
 st.line_chart(Price)
 
+st.title('Stock Investment Portfolio-Risk and Return')
+tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
+dropdown=st.multiselect('Pick your assets',tickers,key=8,default='TSLA')
+start = st.date_input('Start',dt.date(2021,8, 17))
+end = st.date_input('end',dt.date(2022,8, 18))
+df= yf.download(dropdown,start,end)
+df = pd.DataFrame()
+data = []
+for symbol in symbols:
+    df = pd.merge(df, pd.DataFrame(yf.download(tickers, fields='price', start=start, end=end)['Adj Close']), right_index=True, left_index=True, how='outer')
+    data.append(tickers)
+df.columns = data
+df = df.dropna(axis='columns')
+st.text(df)
+
