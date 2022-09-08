@@ -154,7 +154,7 @@ chart_data = pd.DataFrame(np.random.randn(50, 2),columns=["Risk","Returns"])
 st.bar_chart(chart_data)
 
 st.title('Stock Covariance & Correlations')
-dropdown = st.selectbox('Choose any one to have analysis',('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN'))
+dropdown = st.selectbox('Choose any one to have analysis',('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN'),key=1)
 st.write('You selected:', dropdown)
 start = st.date_input('Start',dt.date(2021,8, 18))
 end = st.date_input('end',dt.date(2022,8, 19))
@@ -175,7 +175,7 @@ st.text(corr_matrix)
 
 st.title('Stock Linear Regression')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
-dropdown = st.selectbox('Choose any one to have analysis',('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN'))
+dropdown = st.selectbox('Choose any one to have analysis',('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN'),key=2)
 start = st.date_input('Start',dt.date(2021,8, 19))
 end = st.date_input('end',dt.date(2022,8, 20))
 dataset= yf.download(dropdown,start,end)
