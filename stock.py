@@ -183,7 +183,7 @@ dataset['Returns'] = np.log(dataset['Adj Close'] / dataset['Adj Close'].shift(1)
 dataset = dataset.dropna()
 X = dataset['Open']
 Y = dataset['Adj Close']
-st.altair_chart(X)
+st.altair_chart(Y)
 X_train,X_test,y_train,y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
 X_train = np.array(X_train).reshape(-1,1)
 y_train = np.array(y_train).reshape(-1,1)
