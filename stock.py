@@ -127,6 +127,5 @@ df_train = df[:740]
 df_test = df[740:]
 df = df.rename(columns={'Date':'date', 'Adj Close':'y'})
 mdl = Prophet(interval_width=0.95,daily_seasonality=True,yearly_seasonality=True)
-df=df['Adj Close'].plot(figsize=(12,8))
 mdl.fit(df_train)
 
