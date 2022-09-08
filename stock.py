@@ -185,5 +185,3 @@ X = dataset['Open']
 Y = dataset['Adj Close']
 st.text('Open')
 st.line_chart(X)
-st.text('Adj Close')
-st.line_chart(Y)
