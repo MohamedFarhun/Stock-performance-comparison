@@ -134,11 +134,6 @@ dropdown=st.multiselect('Pick your assets',tickers,key=8,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 17))
 end = st.date_input('end',dt.date(2022,8, 18))
 df= yf.download(dropdown,start,end)
-df = pd.DataFrame()
-data = []
-for ticker in tickers:
-    df = pd.merge(df, pd.DataFrame(yf.download(tickers, fields='price', start=start, end=end)['Adj Close']), right_index=True, left_index=True, how='outer')
-    data.append(ticker)
 rets = df.pct_change()
 rets=rets.std()
 st.bar_chart(rets)
