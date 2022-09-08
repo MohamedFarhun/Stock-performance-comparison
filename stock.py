@@ -73,7 +73,7 @@ dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['Adj Close'
 dataset['End'] = dataset['End'] + dataset['PnL']
 st.line_chart(dataset)
 st.subheader("Financial Analysis")
-Shares = round(int(float(Start) / dataset['Adj Close'][0]),1)
+Shares = 300
 Purchase_Price = dataset['Adj Close'][0] 
 Current_Value = dataset['Adj Close'][-1] 
 Purchase_Cost = Shares * Purchase_Price
