@@ -38,7 +38,6 @@ end = st.date_input('end',dt.date(2022,8, 12))
 dataset = yf.download(dropdown,start,end)['Adj Close']
 st.title('Weekly Stock Adj Close for Monday')
 weekly_Monday = dataset.asfreq('W-Mon')
-fig, ax = plt.subplots(figsize=(16, 4))
 st.line_chart(dataset)
 
 st.title('Weekly Stock Average for Monday')
@@ -48,7 +47,6 @@ start = st.date_input('Start',dt.date(2021,8, 12))
 end = st.date_input('end',dt.date(2022,8, 13))
 dataset = yf.download(dropdown,start,end)['Adj Close']
 weekly_avg = dataset.resample('W').mean()
-fig, ax = plt.subplots(figsize=(16, 4))
 st.line_chart(dataset)
 
 st.title('Stock Time Returns Analysis')
@@ -73,5 +71,4 @@ dataset['Adj Close']=300
 dataset['Shares'] = dataset['End'] / dataset['Adj Close']
 dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['Adj Close'])
 dataset['End'] = dataset['End'] + dataset['PnL']
-fig, ax = plt.subplots(figsize=(16, 4))
 st.line_chart(dataset)
