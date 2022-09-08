@@ -154,7 +154,7 @@ st.bar_chart(chart_data)
 
 st.title('Stock Covariance & Correlations')
 dropdown = st.selectbox('Choose any one to have analysis',('TSLA', 'BTC-USD', 'ETH-USD'))
-st.write('You selected:', option)
+st.write('You selected:', dropdown)
 start = st.date_input('Start',dt.date(2021,8, 18))
 end = st.date_input('end',dt.date(2022,8, 19))
 dataset= yf.download(dropdown,start,end)
