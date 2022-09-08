@@ -152,5 +152,7 @@ st.header('Risk vs Return')
 ind = np.arange(5,2)
 width = 0.35 
 char=ind+width/2
-chart_data = pd.DataFrame(ind,columns=["Risk", "Return"])
+chart_data = pd.DataFrame(
+     np.random.randn(50, 3),
+     columns=["a", "b", "c"])
 st.bar_chart(chart_data)
