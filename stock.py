@@ -47,5 +47,15 @@ end = st.date_input('end',datetime.date(2022,8, 13))
 dataset = yf.download(dropdown,start,end)['Adj Close']
 weekly_avg = dataset.resample('W').mean()
 fig, ax = plt.subplots(figsize=(16, 4))
+st.line_chart(dataset)
+
+st.title('Stock Close Price monthly')
+tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
+dropdown=st.multiselect('Pick your assets',tickers,key=4,default='TSLA')
+start = st.date_input('Start',datetime.date(2021,8, 13))
+end = st.date_input('end',datetime.date(2022,8, 14))
+dataset = yf.download(dropdown,start,end)['Adj Close']
+business_monthly = dataset.resample('BM')
+business_monthly['Adj Close']
 fig, ax = plt.subplots(figsize=(16, 4))
 st.line_chart(dataset)
