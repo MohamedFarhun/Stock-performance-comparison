@@ -72,3 +72,9 @@ dataset['Shares'] = dataset['End'] / dataset['Adj Close']
 dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['Adj Close'])
 dataset['End'] = dataset['End'] + dataset['PnL']
 st.line_chart(dataset)
+st.subheader("Financial Analysis")
+print(tickers + ' profit or loss of $%.2f' % (Profit_or_Loss))
+print('Percentage gain or loss: %s %%' % round(percentage_gain_or_loss,2))
+print('Percentage of returns: %s %%' % round(percentage_returns,2))
+print('Net gains or losses: %s %%' % round(net_gains_or_losses,2))
+print('Total Returns: %s %%' % round(total_return,2))
