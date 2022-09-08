@@ -74,8 +74,8 @@ dataset['End'] = dataset['End'] + dataset['PnL']
 st.line_chart(dataset)
 st.subheader("Financial Analysis")
 Shares = 300
-Purchase_Price = dataset['Adj Close'][0] 
-Current_Value = dataset['Adj Close'][-1] 
+Purchase_Price = dataset['Adj Close']
+Current_Value = dataset['Adj Close']
 Purchase_Cost = Shares * Purchase_Price
 Current_Value = Shares * Current_Value
 Profit_or_Loss = Current_Value - Purchase_Cost 
