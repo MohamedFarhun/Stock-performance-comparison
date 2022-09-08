@@ -93,4 +93,4 @@ st.text(fit)
 x_test=df.iloc[:,:1]
 y_test=df['Adj Close']
 score=lr.score(x_test, y_test)
-st.text(score)
+st.text('The Accuracy score is':-score)
