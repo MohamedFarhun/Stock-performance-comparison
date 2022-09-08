@@ -3,7 +3,7 @@ import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime as dt
-import math
+from sklearn.linear_model import LinearRegression
 
 
 st.title('Stock performance comparison')
@@ -72,3 +72,11 @@ dataset['Shares'] = dataset['End'] / dataset['Adj Close']
 dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['Adj Close'])
 dataset['End'] = dataset['End'] + dataset['PnL']
 st.line_chart(dataset)
+
+st.title('Profit and Loss in Trading')
+tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
+dropdown=st.multiselect('Pick your assets',tickers,key=6,default='TSLA')
+start = st.date_input('Start',dt.date(2021,8, 14))
+end = st.date_input('end',dt.date(2022,8, 15))
+dataset= yf.download(dropdown,start,end)['Adj Close']
+
