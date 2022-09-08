@@ -154,5 +154,5 @@ width = 0.35
 char=ind+width/2
 chart_data = pd.DataFrame(
      np.random.randn(50, 3),
-     columns=["a", "b", "c"])
+     columns=[ind, width, char])
 st.bar_chart(chart_data)
