@@ -58,12 +58,12 @@ data = yf.download(dropdown,start,end)['Adj Close']
 st.line_chart(data)
 
 st.title('Profit and Loss in Trading')
-tickers={'TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN'}
+tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
 dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 start = dt.date.today() - dt.timedelta(days = 365*5)
 end = dt.date.today()
 dataset= yf.download(dropdown,start,end)['Adj Close']
-dataset_series=pd.Series(list(dataset))
+dataset_series=pd.Series(tuple(dataset))
 Start = 5000
 dataset['Shares'] = 0
 dataset['PnL'] = 0
