@@ -90,7 +90,7 @@ y_train=y_train.reshape(-1,1)
 lr = LinearRegression()
 fit=lr.fit(x_train, y_train)
 st.text(fit)
-x_test=df[1:5]
+x_test=df[:2]
 y_test=df['Adj Close']
 y_test = lr.predict(x_test)
 score=lr.score(x_test, y_test)
