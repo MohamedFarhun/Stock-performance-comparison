@@ -189,7 +189,7 @@ df = pd.DataFrame(
      columns=['a', 'b'])
 
 c = alt.Chart(df).mark_circle().encode(
-     x='a', y='b', size='c', color='c', tooltip=['a', 'b'])
+     x='a', y='b', size='c', color='c', tooltip=['a', 'b','c'])
 
 st.altair_chart(c, use_container_width=True)
 X_train,X_test,y_train,y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
