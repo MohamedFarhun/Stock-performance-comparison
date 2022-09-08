@@ -150,6 +150,6 @@ st.text('Mean')
 st.bar_chart(rets1)
 st.header('Risk vs Return')
 ind = np.arange(5)
-width = 0.35       
-st.bar_chart(ind, df.mean(), width, color = 'g', label='Average of Returns')
-st.bar_chart(ind + width, df.std(), width, color = 'r', label='Risk of Returns')
+width = 0.35 
+st.bar_chart(df.mean(),ind,width)
+st.bar_chart(df.std(),ind+width,ind)
