@@ -3,18 +3,6 @@ import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
 
-with st.form("my_form"):
-    st.write("Inside the form")
-    slider_val = st.slider("Form slider")
-    checkbox_val = st.checkbox("Form checkbox")
-
-    # Every form must have a submit button.
-    submitted = st.form_submit_button("Submit")
-    if submitted:
-        st.write("slider", slider_val, "checkbox", checkbox_val)
-
-st.write("Outside the form")
-
 st.title('Stock performance comparison')
 
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
@@ -41,10 +29,11 @@ if len(dropdown)>0:
     
 st.title('Stock time series analysis')
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
+dropdown=st.multiselect('Pick your assets',tickers,key=2)
 start=st.date_input('Start',value =pd.to_datetime('2022-07-12'))
 end=st.date_input('End',value=pd.to_datetime('2022-08-05'))
 st.subheader('Please add a stock to rectify the error')
-dataset = yf.download(tickers,start,end)['Adj Close']
+dataset = yf.download(dropdown,start,end)['Adj Close']
 st.title('Weekly Stock Adj Close for Monday')
 weekly_Monday = dataset.asfreq('W-Mon')
 fig, ax = plt.subplots(figsize=(16, 4))
