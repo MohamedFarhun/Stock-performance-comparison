@@ -174,7 +174,7 @@ st.text('Correlation:-')
 corr_matrix = stocks_returns.corr()*250
 st.text(corr_matrix)
 
-st.title('Stock Linear Regression')
+st.title('Stock Linear Regression(Graphical representation)')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
 dropdown = st.selectbox('Choose any one to have analysis',('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN'),key=10)
 start = st.date_input('Start',dt.date(2021,8, 19))
@@ -201,4 +201,5 @@ st.text('Slope is:-')
 Slope=linregression.coef_
 st.text(Slope)
 predicted_value=linregression.predict(X_train)
+st.subheader('Predicted graph')
 st.line_chart(predicted_value)
