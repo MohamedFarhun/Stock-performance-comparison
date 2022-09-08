@@ -79,7 +79,7 @@ Current_Value = dataset['Adj Close']
 Purchase_Cost = Shares * Purchase_Price
 Current_Value = Shares * Current_Value
 Profit_or_Loss = Current_Value - Purchase_Cost 
-print(tickers + ' profit or loss of $%.2f' % (Profit_or_Loss))
+st.header('Returns of {}'.format(dropdown))
 print('Percentage gain or loss: %s %%' % round(percentage_gain_or_loss,2))
 print('Percentage of returns: %s %%' % round(percentage_returns,2))
 print('Net gains or losses: %s %%' % round(net_gains_or_losses,2))
