@@ -143,4 +143,8 @@ for ticker in tickers:
 rets = df.pct_change()
 rets=rets.columns
 rets=df.std()
+rets1=df.mean()
+st.text('standard deviation')
 st.bar_chart(rets)
+st.text('mean')
+st.bar_chart(rets1)
