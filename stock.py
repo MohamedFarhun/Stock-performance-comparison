@@ -70,7 +70,7 @@ dataset['Shares'] = 0
 dataset['PnL'] = 0
 dataset['End'] = Start
 dataset['Adj Close']=300
-dataset['Shares'] = dataset['End'].shift(1) / dataset['Adj Close'].shift(1)
-dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close']- dataset['Adj Close'].shift(1))
-dataset['End'] = dataset['End'].shift(1)+ dataset['PnL']
+dataset['Shares'] = 5000.shift(1) / 300.shift(1)
+dataset['PnL'] = dataset['Shares'] * (300- 300.shift(1))
+dataset['End'] =5000.shift(1)+ dataset['PnL']
 st.line_chart(dataset)
