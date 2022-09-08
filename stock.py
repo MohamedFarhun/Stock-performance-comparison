@@ -135,9 +135,9 @@ end = st.date_input('end',dt.date(2022,8, 18))
 df= yf.download(dropdown,start,end)
 df = pd.DataFrame()
 data = []
-for symbol in symbols:
+for ticker in tickers:
     df = pd.merge(df, pd.DataFrame(yf.download(tickers, fields='price', start=start, end=end)['Adj Close']), right_index=True, left_index=True, how='outer')
-    data.append(tickers)
+    data.append(ticker)
 df.columns = data
 df = df.dropna(axis='columns')
 st.text(df)
