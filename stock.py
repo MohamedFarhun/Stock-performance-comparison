@@ -91,6 +91,6 @@ lr = LinearRegression()
 fit=lr.fit(x_train, y_train)
 st.text(fit)
 x_test=df.iloc[:,:2]
-y_test=df.loc['Adj Close']
+y_test=df['Adj Close']
 score=lr.score(x_test, y_test)
 st.text(score)
