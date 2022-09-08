@@ -158,7 +158,7 @@ option = st.selectbox('Choose any one to have analysis',('TSLA', 'BTC-USD', 'ETH
 st.write('You selected:', option)
 start = st.date_input('Start',dt.date(2021,8, 18))
 end = st.date_input('end',dt.date(2022,8, 19))
-dataset= yf.download(dropdown,start,end)['Adj close']
+dataset= yf.download((dropdown,start,end)['Adj close'])
 stocks_returns = np.log(dataset / dataset.shift(1))
 variance=stocks_returns['TSLA'].var()
 variance=stocks_returns['BTC-USD'].var()
