@@ -151,5 +151,6 @@ st.bar_chart(rets1)
 st.header('Risk vs Return')
 ind = np.arange(5)
 width = 0.35 
-chart_data = pd.DataFrame(df.mean())
+char=ind+width/2
+chart_data = pd.DataFrame(np.arange(5),width=0.35,char,columns=["Risk", "Return"])
 st.bar_chart(chart_data)
