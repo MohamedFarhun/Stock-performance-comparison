@@ -1,9 +1,10 @@
+from __future__ import division
 import streamlit as st
 import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime as dt
-from __future__ import division
+
 
 st.title('Stock performance comparison')
 
