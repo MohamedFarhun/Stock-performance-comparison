@@ -97,3 +97,12 @@ score=lr.score(x_test, y_test)
 st.text('The accuracy score is:-')
 st.text(score)
 
+st.title('ValueAtRisk')
+tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
+dropdown=st.multiselect('Pick your assets',tickers,key=6,default='TSLA')
+start = st.date_input('Start',dt.date(2021,8, 15))
+end = st.date_input('end',dt.date(2022,8, 16))
+df= yf.download(dropdown,start,end)
+df["Adj Close"].pct_change().hist(bins=50, histtype='stepfilled', alpha=0.5)
+Adjclose=df["Adj Close"].pct_change().std()
+st.text(Adjclose)
