@@ -184,8 +184,9 @@ dataset['Returns'] = np.log(dataset['Adj Close'] / dataset['Adj Close'].shift(1)
 dataset = dataset.dropna()
 X = dataset['Open']
 Y = dataset['Adj Close']
-df = pd.DataFrame(np.random.randn(200, 2),columns=['Open', 'Adj Close'])
-Open = alt.Chart(dataset).mark_circle().encode(x='Open', y='Adj Close', size='c', color='c', tooltip=['Open', 'Adj Close'])
+Z=dataset['Volume']
+df = pd.DataFrame(np.random.randn(200, 2),columns=['Open', 'Adj Close','Volume'])
+Open = alt.Chart(dataset).mark_circle().encode(x='Open', y='Adj Close', size='c', color='c', tooltip=['Open', 'Adj Close','Volume'])
 st.altair_chart(Open, use_container_width=True)
 X_train,X_test,y_train,y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
 X_train = np.array(X_train).reshape(-1,1)
