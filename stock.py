@@ -4,6 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import datetime as dt
 from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
 
 
 st.title('Stock performance comparison')
@@ -79,10 +80,11 @@ dropdown=st.multiselect('Pick your assets',tickers,key=6,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 14))
 end = st.date_input('end',dt.date(2022,8, 15))
 df= yf.download(dropdown,start,end)
-X_train = df[1:5]
-Y_train = df['Adj Close']
-X_train = X_train.values[:-1]
-Y_train = Y_train.values[1:]
+x_train = df[1:5]
+y_train = df['Adj Close']
+x_train = x_train.values[:-1]
+y_train = y_train.values[1:]
+x_train,x_test,y_train,y_test=train_test_split(X,data_target,test_size=0.1,random_state=3)
 lr = LinearRegression()
 lr.fit(X_train, Y_train)
 lr.score(X_test, Y_test)
