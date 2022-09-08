@@ -80,4 +80,4 @@ start = st.date_input('Start',dt.date(2021,8, 14))
 end = st.date_input('end',dt.date(2022,8, 15))
 df= yf.download(dropdown,start,end)['Adj Close']
 X_train = df[1:5]
-Y_train = df['Adj Close']
+Y_train = df[5]
