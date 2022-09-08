@@ -1,4 +1,3 @@
-from __future__ import division
 import streamlit as st
 import yfinance as yf
 import pandas as pd
@@ -70,7 +69,8 @@ dataset['Shares'] = 0
 dataset['PnL'] = 0
 dataset['End'] = Start
 dataset['Adj Close']=dataset
-dataset['Shares'] = dataset['End'] / dataset['Adj Close']
-dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['Adj Close'])
+Adj Close=int['Adj Close']
+dataset['Shares'] = dataset['End'] / Adj Close
+dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - Adj Close)
 dataset['End'] = dataset['End'] + dataset['PnL']
 st.line_chart(dataset)
