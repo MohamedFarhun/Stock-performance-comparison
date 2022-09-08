@@ -7,6 +7,7 @@ import datetime as dt
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
+from pandas.plotting import scatter_matrix
 
 
 st.title('Stock performance comparison')
@@ -138,7 +139,8 @@ data = []
 for ticker in tickers:
     df = pd.merge(df, pd.DataFrame(yf.download(tickers, fields='price', start=start, end=end)['Adj Close']), right_index=True, left_index=True, how='outer')
     data.append(ticker)
-df.columns = data
-df = df.dropna(axis='columns')
-st.text(df)
+rets = df.pct_change(periods=3)
+scatter_matrix(rets, diagonal='kde', figsize=(10, 10))
+corr = rets.corr()
+st.scatter_plot(corr)
 
