@@ -2,7 +2,7 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
-import datetime
+import datetime as dt
 
 st.title('Stock performance comparison')
 
@@ -32,7 +32,7 @@ st.title('Stock time series analysis')
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
 dropdown=st.multiselect('Pick your assets',tickers,key=2,default='TSLA')
 start=st.date_input('Start',value =pd.to_datetime('2022-07-12'))
-end = st.date_input('end',datetime.date(2022,8, 12))
+end = st.date_input('end',dt.date(2022,8, 12))
 dataset = yf.download(dropdown,start,end)['Adj Close']
 st.title('Weekly Stock Adj Close for Monday')
 weekly_Monday = dataset.asfreq('W-Mon')
@@ -42,8 +42,8 @@ st.line_chart(dataset)
 st.title('Weekly Stock Average for Monday')
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
 dropdown=st.multiselect('Pick your assets',tickers,key=3,default='TSLA')
-start = st.date_input('Start',datetime.date(2021,8, 12))
-end = st.date_input('end',datetime.date(2022,8, 13))
+start = st.date_input('Start',dt.date(2021,8, 12))
+end = st.date_input('end',dt.date(2022,8, 13))
 dataset = yf.download(dropdown,start,end)['Adj Close']
 weekly_avg = dataset.resample('W').mean()
 fig, ax = plt.subplots(figsize=(16, 4))
@@ -52,8 +52,8 @@ st.line_chart(dataset)
 st.title('Stock Time Returns Analysis')
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
 dropdown=st.multiselect('Pick your assets',tickers,key=4,default='TSLA')
-start = st.date_input('Start',datetime.date(2021,8, 13))
-end = st.date_input('end',datetime.date(2022,8, 14))
+start = dt.date.today() - dt.timedelta(days = 365*5)
+end = dt.date.today()
 data = yf.download(dropdown,start,end)['Adj Close']
 plt.figure(figsize=(15,10))
 plt.title(tickers)
