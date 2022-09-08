@@ -76,7 +76,7 @@ st.line_chart(dataset)
 
 st.title('Stock Price Predictions')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
-dropdown=st.radio('Pick your assets',tickers,key=6,default='TSLA')
+dropdown=st.radio('Pick your assets',tickers)
 start = st.date_input('Start',dt.date(2021,8, 14))
 end = st.date_input('end',dt.date(2022,8, 15))
 df= yf.download(dropdown,start,end)
