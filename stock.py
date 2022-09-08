@@ -115,3 +115,10 @@ sigma = returns.std()
 quantile=returns.quantile(0.05)
 st.text('Return of quantile is:-')
 st.text(quantile)
+
+st.title('Time Series Stock Forecast')
+tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
+dropdown=st.multiselect('Pick your assets',tickers,key=7,default='TSLA')
+start = st.date_input('Start',dt.date(2021,8, 15))
+end = st.date_input('end',dt.date(2022,8, 16))
+df= yf.download(dropdown,start,end)
