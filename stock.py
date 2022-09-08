@@ -194,8 +194,8 @@ linregression=LinearRegression()
 st.text(linregression)
 linregression.fit(X_train,y_train)
 y_pred = linregression.predict(X_test)
+st.text(Intercept)
 intercept=linregression.intercept_
-st.text(intercept)
 Slope=linregression.coef_
 st.text(Slope)
 predicted_value=linregression.predict(X_train)
