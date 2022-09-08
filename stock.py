@@ -90,7 +90,7 @@ y_train=y_train.reshape(-1,1)
 lr = LinearRegression()
 fit=lr.fit(x_train, y_train)
 st.text(fit)
-x_test = x_test[:-1]
-y_test = y_test[1:]
+x_test = x_test[2:-1]
+y_test = y_test[0:2]
 score=lr.score(x_test, y_test)
 st.text(score)
