@@ -183,7 +183,7 @@ dataset['Returns'] = np.log(dataset['Adj Close'] / dataset['Adj Close'].shift(1)
 dataset = dataset.dropna()
 X = dataset['Open']
 Y = dataset['Adj Close']
-st.line_chart(X)
+st.altair_chart(X)
 X_train,X_test,y_train,y_test=train_test_split(X,Y,test_size=0.2,random_state=0)
 X_train = np.array(X_train).reshape(-1,1)
 y_train = np.array(y_train).reshape(-1,1)
@@ -191,3 +191,10 @@ X_test = np.array(X_test).reshape(-1,1)
 y_test = np.array(y_test).reshape(-1,1)
 linregression=LinearRegression()
 linregression.fit(X_train,y_train)
+y_pred = linregression.predict(X_test)
+intercept=linregression.intercept_
+st.text(intercept)
+Slope=linregression.coef_
+st.text(Slope)
+predicted_value=linregression.predict(X_train)
+st.line_chart(predicted_value)
