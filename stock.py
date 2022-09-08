@@ -43,7 +43,7 @@ st.title('Weekly Stock Average for Monday')
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
 dropdown=st.multiselect('Pick your assets',tickers,key=3,default='TSLA')
 start = st.date_input('Start',datetime.date(2021,8, 12))
-end = st.date_input('end',datetime.date(2022,8, 12))
+end = st.date_input('end',datetime.date(2022,8, 13)
 dataset = yf.download(dropdown,start,end)['Adj Close']
 weekly_avg = dataset.resample('W').mean()
 fig, ax = plt.subplots(figsize=(16, 4))
