@@ -153,7 +153,7 @@ chart_data = pd.DataFrame(np.random.randn(50, 2),columns=["Risk","Returns"])
 st.bar_chart(chart_data)
 
 st.title('Stock Covariance & Correlations')
-tickers=['TSLA':0,'AAPL':1,'MSFT':2,'BTC-USD':3,'ETH-USD':4,'AMD':5,'AMZN:6']
+tickers={'TSLA':0,'AAPL':1,'MSFT':2,'BTC-USD':3,'ETH-USD':4,'AMD':5,'AMZN:6'}
 option = st.selectbox('Choose any one to have analysis',('TSLA', 'BTC-USD', 'ETH-USD'))
 st.write('You selected:', option)
 start = st.date_input('Start',dt.date(2021,8, 18))
