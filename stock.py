@@ -60,8 +60,8 @@ st.line_chart(data)
 st.title('Profit and Loss in Trading')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
 dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
-start = dt.date.today() - dt.timedelta(days = 365*5)
-end = dt.date.today()
+start = st.date_input('Start',dt.date(2021,8, 13))
+end = st.date_input('end',dt.date(2022,8, 14))
 dataset= yf.download(dropdown,start,end)['Adj Close']
 Start = 5000
 dataset['Shares'] = 300
