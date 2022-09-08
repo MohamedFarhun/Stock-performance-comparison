@@ -173,7 +173,7 @@ st.text('Correlation:-')
 corr_matrix = stocks_returns.corr()*250
 st.text(corr_matrix)
 
-st.title('Stock Investment Portfolio-Risk and Return')
+st.title('Stock Linear Regression')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
 dropdown=st.multiselect('Pick your assets',tickers,key=9,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 18))
