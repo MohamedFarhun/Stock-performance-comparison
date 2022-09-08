@@ -125,5 +125,5 @@ start = st.date_input('Start',dt.date(2021,8, 16))
 end = st.date_input('end',dt.date(2022,8, 17))
 df= yf.download(dropdown,start,end)
 Price= pd.DataFrame(np.log(df['Adj Close']))
-st.bar_chart(Price)
+st.line_chart(Price)
 
