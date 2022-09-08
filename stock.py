@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 import datetime as dt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from pandas_datareader import data as pdr
 
 
 st.title('Stock performance comparison')
