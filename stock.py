@@ -65,7 +65,7 @@ st.line_chart(data)
 
 st.title('Stock Time Returns Analysis')
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
-dropdown=st.multiselect('Pick your assets',tickers,key=4,default='TSLA')
+dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 start = dt.date.today() - dt.timedelta(days = 365*5)
 end = dt.date.today()
 df = yf.download(dropdown,start,end)['Adj Close']
