@@ -69,8 +69,8 @@ Start = 5000
 dataset['Shares'] = 0
 dataset['PnL'] = 0
 dataset['End'] = Start
-dataset['AdjClose']=math.floor(['Adj Close'])
-dataset['Shares'] = dataset['End'] / dataset['AdjClose']
-dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['AdjClose'])
+data=int(['Adj Close'])
+dataset['Shares'] = dataset['End'] / data
+dataset['PnL'] = dataset['Shares'] * (data- data)
 dataset['End'] = dataset['End'] + dataset['PnL']
 st.line_chart(dataset)
