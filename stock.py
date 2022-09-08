@@ -122,11 +122,10 @@ tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
 dropdown=st.multiselect('Pick your assets',tickers,key=7,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 16))
 end = st.date_input('end',dt.date(2022,8, 17))
-df2= yf.download(dropdown,start,end)
-df2 = pd.DataFrame(df)
-df2_train = df[:740]
-df2_test = df[740:]
+df= yf.download(dropdown,start,end)
+df_train = df[:740]
+df_test = df[740:]
 mdl = Prophet(interval_width=0.95,daily_seasonality=True,yearly_seasonality=True)
-df2.rename(columns = {'date':'ds','Adj Close':'y'}, inplace = True)
-mdl.fit(df2_train)
+df.rename(columns={'Date':'ds','Open':'open''High':'high','Low':'low','Close':'close','Adj Close':'adj close','Volume':'volume'},  inplace=True)
+mdl.fit(df_train)
 
