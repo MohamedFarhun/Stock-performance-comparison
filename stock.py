@@ -162,6 +162,6 @@ dataset= yf.download(dropdown,start,end)['Adj Close']
 stocks_returns = np.log(dataset / dataset.shift(1))
 variance=stocks_returns['TSLA'].var()
 variance=stocks_returns['BTC-USD'].var()
-variance=stocks_returns['ETH-USD'].var()
+variance=stocks_returns['ETH-USD'].var() 
 st.text('Variance of {}')
 st.text(variance)
