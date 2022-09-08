@@ -8,6 +8,7 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from pandas.plotting import scatter_matrix
+import math
 
 
 st.title('Stock performance comparison')
@@ -159,8 +160,7 @@ start = st.date_input('Start',dt.date(2021,8, 18))
 end = st.date_input('end',dt.date(2022,8, 19))
 dataset= yf.download(dropdown,start,end)
 stocks_returns = np.log(dataset / dataset.shift(1))
-stocks_returns['TSLA']= var()
-stocks_returns['BTC-USD']= var()
-stocks_returns['ETH-USD']= var()
-st.text('Variance of {}')
-st.text(variance)
+cov_matrix = stocks_returns.cov()
+cov_matrix = stocks_returns.cov()*250
+st.text('covariance of {}')
+st.text(cov_matrix)
