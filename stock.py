@@ -73,4 +73,5 @@ dataset['Adj Close']=300
 dataset['Shares'] = dataset['End'] / dataset['Adj Close']
 dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['Adj Close'])
 dataset['End'] = dataset['End'] + dataset['PnL']
+fig, ax = plt.subplots(figsize=(16, 4))
 st.line_chart(dataset)
