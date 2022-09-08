@@ -130,7 +130,7 @@ st.line_chart(Price)
 
 st.title('Stock Investment Portfolio-Risk and Return')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
-dropdown=st.multiselect('Pick your assets',tickers,key=8,default='TSLA')['Adj Close']
+dropdown=st.multiselect('Pick your assets',tickers,key=8,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 17))
 end = st.date_input('end',dt.date(2022,8, 18))
 df= yf.download(dropdown,start,end)
