@@ -3,6 +3,7 @@ import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime as dt
+import math
 
 
 st.title('Stock performance comparison')
@@ -68,7 +69,7 @@ Start = 5000
 dataset['Shares'] = 0
 dataset['PnL'] = 0
 dataset['End'] = Start
-dataset['AdjClose']=int(['Adj Close'])
+dataset['AdjClose']=math.floor(['Adj Close'])
 dataset['Shares'] = dataset['End'] / dataset['AdjClose']
 dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['AdjClose'])
 dataset['End'] = dataset['End'] + dataset['PnL']
