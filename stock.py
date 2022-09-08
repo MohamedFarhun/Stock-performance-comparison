@@ -2,6 +2,7 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
+from fbprophet import Prophet
 import datetime as dt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
@@ -122,3 +123,11 @@ dropdown=st.multiselect('Pick your assets',tickers,key=7,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 16))
 end = st.date_input('end',dt.date(2022,8, 17))
 df= yf.download(dropdown,start,end)
+df_train = df[:740]
+df_test = df[740:]
+mdl = Prophet(interval_width=0.95, daily_seasonality=True,yearly_seasonality=True)
+mdl.fit(df_train)
+future = mdl.make_future_dataframe(periods=24, freq='MS')
+forecast = mdl.predict(future)
+mdl=mdl.plot(forecast)
+st.line_chart(mdl)
