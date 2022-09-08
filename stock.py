@@ -142,5 +142,5 @@ for ticker in tickers:
     break;
 rets = df.pct_change()
 rets=rets.columns
-rets=rets.std()
-st.bar_chart(rets)
+ret=rets.std()
+st.bar_chart(ret)
