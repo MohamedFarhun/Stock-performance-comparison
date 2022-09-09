@@ -250,11 +250,17 @@ st.write('final_price_as_computed_with_RG of {} is:-'.format(dropdown),final_pri
 Harmonic_mean=len(returns)/np.sum(1.0/returns)
 st.write('Harmonic_mean of {} is:-'.format(dropdown),Harmonic_mean)
 skew=stats.skew(returns)
-st.write('Skew of {} is:-'.format(dropdown),skew)
-plt.hist(returns, 30); 
+xs = np.linspace(-6,6, 1257)
+normal = stats.norm.pdf(xs)
+plt.plot(returns,stats.laplace.pdf(returns), label='Leptokurtic')
+plt.plot(returns,stats.cosine.pdf(returns), label='Platykurtic')
+plt.legend()
 st.pyplot(plt)
 kurtosis=stats.kurtosis(returns)
-st.write('Kurtosis of {} is:-'.format(dropdown),kurtosis)
+st.write('Skew of {} is:-'.format(dropdown),skew)
+st.write('Excess Kurtosis of {} is:-'.format(dropdown),kurtosis)
+plt.hist(returns, 30); 
+st.pyplot(plt)
 _, pvalue, _, _ = jarque_bera(returns)
 st.write('The returns of {} :-'.format(dropdown))
 if pvalue > 0.05:
