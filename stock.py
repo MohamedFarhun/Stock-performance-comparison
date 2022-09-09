@@ -318,9 +318,9 @@ plt.hist(dataset['Returns'], bins=25, color='g')
 xmin, xmax = plt.xlim()
 x = np.linspace(xmin, xmax, 1171)
 p = gamma.pdf(x, alpha, scale=1/beta)
-plt1.plot(x, p, 'k', linewidth=2)
-plt1.title("Gamma Distribution for Stock")
-st.pyplot(plt1)
+plt.plot(x, p, 'k', linewidth=2)
+plt.title("Gamma Distribution for Stock")
+st.pyplot(plt)
 
 n = 10 
 p = 0.5 
