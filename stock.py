@@ -218,3 +218,13 @@ st.write('Median of {} is:-'.format(dropdown),median)
 st.write('Median_low of {} is:-'.format(dropdown),median_low)
 st.write('Median_high of {} is:-'.format(dropdown),median_high)
 st.write('Median_grouped of {} is:-'.format(dropdown),median_grouped)
+Standard_deviation=returns.std()
+st.write('Standard_deviation of {} is:-'.format(dropdown),Standard_deviation)
+init_price = df['Adj Close'][0]
+final_price = df['Adj Close'][T]
+st.write('init_price of {} is:-'.format(dropdown),init_price)
+st.write('final_price of {} is:-'.format(dropdown),final_price)
+final_price_as_computed_with_RG=init_price*(1 + R_G)**T
+st.write('final_price_as_computed_with_RG of {} is:-'.format(dropdown),final_price_as_computed_with_RG)
+Harmonic_mean=len(returns)/np.sum(1.0/returns)
+st.write('Harmonic_mean of {} is:-'.format(dropdown),Harmonic_mean)
