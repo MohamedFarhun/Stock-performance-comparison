@@ -179,34 +179,6 @@ plt.xlabel("Stock Symbols")
 plt.ylabel("Returns")
 st.pyplot(plt)
 plt.close()
-ind = np.arange(5)
-width = 0.35       
-plt.bar(ind, rets.mean(), width, color = 'g', label='Average of Returns')
-plt.bar(ind + width, rets.std(), width, color = 'r', label='Risk of Returns')
-plt.ylabel('Returns Scores')
-plt.xlabel('Symbols')
-plt.title('Risk vs Return')
-plt.xticks(ind + width / 2, ('AAPL', 'MSFT', 'AMD', 'INTC', 'NVDA'))
-plt.legend(loc='best')
-st.pyplot(plt)
-plt.close()
-plt.scatter(rets.mean(), rets.std())
-plt.xlabel('Expected returns')
-plt.ylabel('Risk')
-for label, x, y in zip(rets.columns, rets.mean(), rets.std()):
-    plt.title('Risk vs Expected Returns')
-    plt.annotate(
-        label, 
-        xy = (x, y), xytext = (20, -20),
-        textcoords = 'offset points', ha = 'right', va = 'bottom',
-        bbox = dict(boxstyle = 'round,pad=0.7', fc = 'yellow', alpha = 0.5),
-        arrowprops = dict(arrowstyle = '->', connectionstyle = 'arc3,rad=0'))
-d = {'Risk':rets.std(), 'Expected Returns':rets.mean()}
-print('Table: Risk vs Expected Returns')
-tables = pd.DataFrame(data=d)
-st.table(tables)
-st.pyplot(plt)
-plt.close()
 
 st.title('Stock Covariance & Correlations')
 dropdown = st.selectbox('Choose any one to have analysis',('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN'),key=9)
