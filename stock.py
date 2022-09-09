@@ -310,9 +310,10 @@ plt.title(title)
 st.pyplot(plt)
 
 mu, std = gamma.stats(dataset['Returns'])
-plt.hist(dataset['Returns'], bins=25, alpha=0.6, color='g')
+plt.hist(dataset['Returns'], bins=25, color='g')
 xmin, xmax = plt.xlim()
 x = np.linspace(xmin, xmax, 1171)
+alpha=0.6
 p = gamma.pdf(x, alpha, scale=1/beta)
 plt.plot(x, p, 'k', linewidth=2)
 plt.title("Gamma Distribution for Stock")
