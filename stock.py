@@ -343,6 +343,6 @@ plt.hist(dist, bins=10)
 plt.title("Poisson Distribution Curve")
 st.pyplot(plt)
 
-st.head('SNS Pairplot')
+st.header('SNS Pairplot')
 sac=sns.pairplot(df, kind="scatter")
 st.pyplot(sac)
