@@ -22,7 +22,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://miro.medium.com/max/3000/1*xR4m0oOKz_jRgQU4Oge53g.jpeg");
+             background-image: url("https://thumbs.dreamstime.com/z/light-bulb-financial-charts-20291407.jpg");
              background-attachment: fixed;
              background-size: cover
          }}
