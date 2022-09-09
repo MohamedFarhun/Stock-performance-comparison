@@ -278,6 +278,22 @@ sigma = df['Returns'].std()
 [n,bins,patches] = plt.hist(df['Returns'], 100)
 s =norm.pdf(bins, mu, sigma)
 plt.plot(bins, s, color='y', lw=2)
+st.text('Stock Returns on Normal Distribution')
+st.pyplot(plt)
+mu = dataset['Returns'].mean()
+sigma = dataset['Returns'].std()
+x_min = dataset['Returns'].min()
+x_max = dataset['Returns'].max()
+def plot_normal(x_range, mu=0, sigma=1, cdf=False, **kwargs):
+    x = x_range
+    if cdf:
+        y = norm.cdf(x, mu, sigma)
+    else:
+        y = norm.pdf(x, mu, sigma)
+    plt.plot(x, y, **kwargs)
+x = np.linspace(x_min, x_max, 100)
+plot_normal(x)
+plot_normal(x, cdf=True)
 st.pyplot(plt)
 
 
