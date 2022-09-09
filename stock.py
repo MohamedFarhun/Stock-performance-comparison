@@ -17,6 +17,22 @@ from statsmodels.stats.stattools import jarque_bera
 
 st.title('Stock performance comparison')
 
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://miro.medium.com/max/3000/1*xR4m0oOKz_jRgQU4Oge53g.jpeg");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+add_bg_from_url() 
+
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
 
 dropdown=st.multiselect('Pick your assets',tickers,key=1,default='TSLA')
