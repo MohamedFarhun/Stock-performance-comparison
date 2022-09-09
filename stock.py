@@ -9,7 +9,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from pandas.plotting import scatter_matrix
 import math
-import altair as alt
+import statistics as sp
+import scipy.stats as stats
 
 
 st.title('Stock performance comparison')
@@ -204,3 +205,17 @@ st.text(Slope)
 predicted_value=linregression.predict(X_train)
 st.subheader('Predicted graph')
 st.line_chart(predicted_value)
+
+st.title('Stock Statistics')
+tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
+dropdown=st.multiselect('Pick your assets',tickers,key=11,default='TSLA')
+start = st.date_input('Start',dt.date(2021,8, 20))
+end = st.date_input('end',dt.date(2022,8, 21))
+df= yf.download(dropdown,start,end)
+returns = df['Adj Close'].pct_change()[1:].dropna()
+mean=sp.mean(returns)
+median=sp.median(returns)
+median_low=sp.median_low(returns)
+median_high=sp.median_high(returns)
+median_grouped=sp.median_grouped(returns)
+st.text(mean)
