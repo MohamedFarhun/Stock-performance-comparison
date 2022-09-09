@@ -95,7 +95,7 @@ df['PnL'] = 0
 df['End'] = Start
 df['Shares'] = df['End'] / df['Adj Close']
 df['PnL'] = df['Shares'] * (df['Adj Close'] - df['Adj Close'])
-df['End'] = df['End'] + df['PnL'])
+df['End'] = df['End'] + df['PnL']
 plt.figure(figsize=(16,8))
 plt.plot(df['PnL'])
 plt.title('Profit and Loss for Daily')
