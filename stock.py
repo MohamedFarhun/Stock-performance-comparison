@@ -18,19 +18,13 @@ from statsmodels.stats.stattools import jarque_bera
 st.title('Stock performance comparison')
 
 def add_bg_from_url():
-    st.markdown(
-         f"""
+    st.markdown(f"""
          <style>
          .stApp {{
-             background-image: url("https://thumbs.dreamstime.com/z/light-bulb-financial-charts-20291407.jpg");
+             background-image: url("https://www.shutterstock.com/shutterstock/photos/1684808446/display_1500/stock-vector-widescreen-abstract-financial-chart-with-uptrend-line-graph-and-candlestick-on-black-and-white-1684808446.jpg");
              background-attachment: fixed;
-             background-size: cover
-         }}
-         </style>
-         """,
-         unsafe_allow_html=True
-     )
-
+             background-size: cover}}
+             </style>""",unsafe_allow_html=True)
 add_bg_from_url() 
 
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
