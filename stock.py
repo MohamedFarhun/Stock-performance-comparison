@@ -275,8 +275,10 @@ max = dataset['Returns'].max()
 standard_deviation=dataset.std()
 mu = dataset['Returns'].mean()
 sigma = dataset['Returns'].std()
-s =norm.pdf(mu, sigma)
-st.line_chart(s)
+[n,bins,patches] = plt.hist(dataset['Returns'], 100)
+s =norm.pdf(bins, mu, sigma)
+plt.plot(bins, s, color='y', lw=2)
+st.pyplot(plt)
 
 
 
