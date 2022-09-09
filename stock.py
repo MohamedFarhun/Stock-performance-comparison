@@ -115,7 +115,7 @@ st.pyplot(plt)
 plt.close()
 X = np.array(df['Open']).reshape(-1,1)
 y = np.array(df['Adj Close'])
-LR = LinearRegression().fit(X, y)
+lr = LinearRegression().fit(X, y)
 LR.score(X, y)
 st.write('Linear regression accuracy score is:-',LR)
 
