@@ -16,6 +16,7 @@ from statsmodels.stats.stattools import jarque_bera
 from scipy.stats import norm
 from scipy.stats import gamma
 from scipy.stats import binom
+from scipy.stats import poisson
 import seaborn as sns
 
 
@@ -317,9 +318,9 @@ plt.hist(dataset['Returns'], bins=25, color='g')
 xmin, xmax = plt.xlim()
 x = np.linspace(xmin, xmax, 1171)
 p = gamma.pdf(x, alpha, scale=1/beta)
-plt.plot(x, p, 'k', linewidth=2)
-plt.title("Gamma Distribution for Stock")
-st.pyplot(plt)
+plt1.plot(x, p, 'k', linewidth=2)
+plt1.title("Gamma Distribution for Stock")
+st.pyplot(plt1)
 
 n = 10 
 p = 0.5 
@@ -327,9 +328,16 @@ k = np.arange(0,21)
 binomial = binom.pmf(k, n, p)
 data_binom = binom.rvs(n=len(dataset['Adj Close']),p=0.5,size=1000)
 plt.figure(figsize=(16,10))
+plt.title('Binomial Distribution')
 ax = sns.distplot(data_binom,kde=False,color='skyblue',hist_kws={"linewidth": 15,'alpha':1})
 ax.set(xlabel='Binomial Distribution', ylabel='Frequency')
 st.pyplot(plt)
 
-
+mu = dataset['Returns'].mean()
+dist = poisson.rvs(mu=mu, loc=0, size=1000)
+print("Mean: %g" % np.mean(dataset['Returns']))
+print("SD: %g" % np.std(dataset['Returns'], ddof=1))
+plt2.hist(dist, bins=10)
+plt2.title('Poisson Distribution Curve')
+st.pyplot(plt2)
 
