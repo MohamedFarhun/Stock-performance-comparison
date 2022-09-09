@@ -17,7 +17,7 @@ from scipy.stats import norm
 from scipy.stats import gamma
 from scipy.stats import binom
 from scipy.stats import poisson
-from scipy.stats import bernoulli
+from scipy.stats import expon
 import seaborn as sns
 
 
@@ -330,6 +330,24 @@ print("Mean: %g" % np.mean(dataset['Returns']))
 print("SD: %g" % np.std(dataset['Returns'], ddof=1))
 plt.hist(dist, bins=10)
 plt.title('Poisson Distribution Curve')
+st.pyplot(plt)
+plt.close()
+
+mu = dataset['Returns'].mean()
+sigma = dataset['Returns'].std()
+x_m = dataset['Returns'].max()
+def plot_exponential(x_range, mu=0, sigma=1, cdf=False, **kwargs):
+    if cdf:
+        y = expon.cdf(x, mu, sigma)
+    else:
+        y = expon.pdf(x, mu, sigma)
+    plt.plot(x, y, **kwargs)
+x = np.linspace(0, x_m, 5000)
+plot_exponential(x, 0, 1, color='red', lw=2, ls='-', alpha=0.5, label='pdf')
+plot_exponential(x, 0, 1, cdf=True, color='blue', lw=2, ls='-', alpha=0.5, label='cdf')
+plt.xlabel('Adj Close')
+plt.ylabel('Probability')
+plt.legend(loc='best')
 st.pyplot(plt)
 plt.close()
 
