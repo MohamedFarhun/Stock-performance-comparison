@@ -216,7 +216,7 @@ st.write('Intercept of {} is:-'.format(dropdown),intercept)
 Slope=linregression.coef_
 st.write('Slope of {} is:-'.format(dropdown),Slope)
 plt.scatter(X_train,y_train)
-plt.plot(X_train,linregression.predict(X_train),'r')
+ax=plt.plot(X_train,linregression.predict(X_train),'r')
 st.subheader('Predicted graph')
 st.pyplot(plt)
 
