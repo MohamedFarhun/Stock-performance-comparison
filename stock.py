@@ -12,6 +12,7 @@ import math
 import statistics as sp
 import scipy.stats as stats
 from scipy.stats.mstats import gmean
+import plotly.figure_factory as ff
 
 
 st.title('Stock performance comparison')
