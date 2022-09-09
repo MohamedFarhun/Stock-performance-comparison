@@ -298,22 +298,6 @@ plt.plot(bins, s, color='y', lw=2)
 st.subheader('Stock Returns on Normal Distribution')
 st.pyplot(plt)
 plt.close()
-mu = dataset['Returns'].mean()
-sigma = dataset['Returns'].std()
-x_min = dataset['Returns'].min()
-x_max = dataset['Returns'].max()
-def plot_normal(x_range, mu=0, sigma=1, cdf=False, **kwargs):
-    x = x_range
-    if cdf:
-        y = norm.cdf(x, mu, sigma)
-    else:
-        y = norm.pdf(x, mu, sigma)
-    plt.plot(x, y, **kwargs)
-x = np.linspace(x_min, x_max, 100)
-plot_normal(x)
-plot_normal(x, cdf=True)
-st.pyplot(plt)
-plt.close()
 mu, std = norm.fit(dataset['Returns'])
 plt.hist(dataset['Returns'], bins=25, alpha=0.6, color='g')
 xmin, xmax = plt.xlim()
