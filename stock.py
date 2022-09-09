@@ -345,6 +345,7 @@ def plot_exponential(x_range, mu=0, sigma=1, cdf=False, **kwargs):
 x = np.linspace(0, x_m, 5000)
 plot_exponential(x, 0, 1, color='red', lw=2, ls='-', alpha=0.5, label='pdf')
 plot_exponential(x, 0, 1, cdf=True, color='blue', lw=2, ls='-', alpha=0.5, label='cdf')
+plt.title('Probability and Cumulative distribution function')
 plt.xlabel('Adj Close')
 plt.ylabel('Probability')
 plt.legend(loc='best')
