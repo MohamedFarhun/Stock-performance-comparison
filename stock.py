@@ -87,16 +87,21 @@ tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
 dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
-dataset= yf.download(dropdown,start,end)['Adj Close']
+df= yf.download(dropdown,start,end)['Adj Close']
 Start = 5000
-dataset['Shares'] = 3
-dataset['PnL'] = 42
-dataset['End'] = Start
-dataset['Adj Close']=300
-dataset['Shares'] = dataset['End'] / dataset['Adj Close']
-dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['Adj Close'])
-dataset['End'] = dataset['End'] + dataset['PnL']
-st.line_chart(dataset)
+df['Shares'] = 0
+df['PnL'] = 0
+df['End'] = Start
+df['Shares'] = df['End'].shift(1) / df['Adj Close'].shift(1)
+df['PnL'] = df['Shares'] * (df['Adj Close'] - df['Adj Close'].shift(1))
+df['End'] = df['End'].shift(1) + df['PnL']
+plt.figure(figsize=(16,8))
+plt.plot(dataset['PnL'])
+plt.title('Profit and Loss for Daily')
+plt.xlabel('Date')
+plt.ylabel('Price')
+st.pyplot(plt)
+plt.close()
 
 st.title('Stock Price Predictions-Accuracy Score')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
