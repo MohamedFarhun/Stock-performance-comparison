@@ -208,7 +208,7 @@ st.line_chart(predicted_value)
 
 st.title('Stock Statistics')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
-dropdown=st.multiselect('Pick your assets',tickers,key=11,default='TSLA')
+dropdown = st.selectbox('Choose any one to have analysis',('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN'),key=11)
 start = st.date_input('Start',dt.date(2021,8, 20))
 end = st.date_input('end',dt.date(2022,8, 21))
 df= yf.download(dropdown,start,end)
