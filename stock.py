@@ -343,8 +343,6 @@ plt.hist(dist, bins=10)
 plt.title("Poisson Distribution Curve")
 st.pyplot(plt)
 
+sns.title('SNS PairPlot')
 sac=sns.pairplot(df, kind="scatter")
 st.pyplot(sac)
-
-rec=sns.regplot(x = "Adj Close", y = "Open", data = df)
-st.pyplot(rec)
