@@ -225,6 +225,8 @@ init_price = df['Adj Close'][0]
 final_price = df['Adj Close'][T]
 st.write('init_price of {} is:-'.format(dropdown),init_price)
 st.write('final_price of {} is:-'.format(dropdown),final_price)
+ratios = returns + np.ones(len(returns))
+R_G = gmean(ratios) - 1
 final_price_as_computed_with_RG=init_price*(1 + R_G)**T
 st.write('final_price_as_computed_with_RG of {} is:-'.format(dropdown),final_price_as_computed_with_RG)
 Harmonic_mean=len(returns)/np.sum(1.0/returns)
