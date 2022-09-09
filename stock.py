@@ -343,19 +343,8 @@ plt.hist(dist, bins=10)
 plt.title("Poisson Distribution Curve")
 st.pyplot(plt)
 
-market = 'TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN'
-dataset1 = yf.download(dropdown,start,end)
-dataset2 = yf.download(market,start,end)
-stock_ret = dataset1['Adj Close'].pct_change().dropna()
-mkt_ret = dataset2['Adj Close'].pct_change().dropna()
-stock_ret = np.array(stock_ret).reshape(-1,1)
-mkt_ret = np.array(mkt_ret).reshape(-1,1)
-beta, alpha = stats.linregress(mkt_ret, stock_ret).split(",")
-print(beta, alpha)
-print("R-squared=", r_value**2)
-print("p-value =", p_value)
-if p_value < alpha:
-    print("The null hypothesis can be rejected")
-else:
-    print("The null hypothesis cannot be rejected")
+sns.pairplot(dataset, kind="scatter")
+st.pyplot(sns)
 
+sns.regplot(x = "Adj Close", y = "Open", data = dataset)
+st.pyplot(sns)
