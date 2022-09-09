@@ -346,5 +346,5 @@ st.pyplot(plt)
 sac=sns.pairplot(df, kind="scatter")
 st.pyplot(sac)
 
-re=sns.regplot(x = "Adj Close", y = "Open", data = df)
-st.pyplot(re)
+rec=sns.regplot(x = "Adj Close", y = "Open", data = df)
+st.pyplot(rec)
