@@ -103,6 +103,13 @@ plt.xlabel('Date')
 plt.ylabel('Price')
 st.pyplot(plt)
 plt.close()
+plt.figure(figsize=(16,8))
+plt.plot(dataset['End'])
+plt.title('Ending Value for Daily')
+plt.xlabel('Date')
+plt.ylabel('Price')
+st.pyplot(plt)
+plt.close()
 
 st.title('Stock Price Predictions-Accuracy Score')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
