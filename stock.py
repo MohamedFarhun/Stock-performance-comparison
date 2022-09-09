@@ -255,11 +255,6 @@ kurtosis=stats.kurtosis(returns)
 plt.hist(returns, 30); 
 st.pyplot(plt)
 st.write('Excess Kurtosis of {} is:-'.format(dropdown),kurtosis)
-xs = np.linspace(-6,6, 1257)
-normal = stats.norm.pdf(xs)
-plt.plot(returns,stats.laplace.pdf(returns), label='Leptokurtic')
-plt.plot(returns,stats.cosine.pdf(returns), label='Platykurtic')
-st.pyplot(plt)
 _, pvalue, _, _ = jarque_bera(returns)
 st.write('The returns of {} :-'.format(dropdown))
 if pvalue > 0.05:
