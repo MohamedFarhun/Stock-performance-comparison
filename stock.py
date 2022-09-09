@@ -296,6 +296,7 @@ plot_normal(x)
 plot_normal(x, cdf=True)
 st.pyplot(plt)
 
+st.text('Fit results')
 mu, std = norm.fit(dataset['Returns'])
 plt.hist(dataset['Returns'], bins=25, alpha=0.6, color='g')
 xmin, xmax = plt.xlim()
