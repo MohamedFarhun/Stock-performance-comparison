@@ -348,8 +348,8 @@ dataset1 = yf.download(dropdown,start,end)
 dataset2 = yf.download(market,start,end)
 stock_ret = dataset1['Adj Close'].pct_change().dropna()
 mkt_ret = dataset2['Adj Close'].pct_change().dropna()
-stock_ret = dataset1.iloc[0:2,:1]
-mkt_ret = dataset2.iloc[0:2,:1]
+stock_ret = dataset1.iloc[1:3,:1]
+mkt_ret = dataset2.iloc[1:3,:1]
 beta, alpha, r_value, p_value, std_err = stats.linregress(mkt_ret, stock_ret)
 print(beta, alpha)
 print("R-squared=", r_value**2)
