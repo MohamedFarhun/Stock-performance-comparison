@@ -113,6 +113,12 @@ plt.xlabel('Adj Close')
 plt.ylabel('Open')
 st.pyplot(plt)
 plt.close()
+X = np.array(df['Open']).reshape(252,-1)
+y = np.array(df['Adj Close'])
+LR = LinearRegression().fit(X, y)
+LR.score(X, y)
+st.write('Linear regression accuracy score is:-',LR)
+
 
 st.title('Stock Price Predictions-Accuracy Score')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
