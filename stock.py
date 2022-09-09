@@ -84,8 +84,12 @@ data = yf.download(dropdown,start,end)['Adj Close']
 st.line_chart(data)
 
 st.title('Basic Statistics in Python-Stock market')
-symbol = 'BTC-USD'
-market = '^GSPC'
+symbol = 'TSLA'
+market = 'ETH-USD'
+st.header('Symbol used for statistics is:-')
+st.subheader(symbol)
+st.header('Market used for statistics is:-')
+st.subheader(market)
 start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
 df = yf.download(symbol,start,end)
