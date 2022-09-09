@@ -92,11 +92,11 @@ Start = 5000
 df['Shares'] = 0
 df['PnL'] = 0
 df['End'] = Start
-df['Shares'] = df['End'].shift(1) / df['Adj Close'].shift(1)
-df['PnL'] = df['Shares'] * (df['Adj Close'] - df['Adj Close'].shift(1))
-df['End'] = df['End'].shift(1) + df['PnL']
+df['Shares'] = pd.DataFrame(df['End'].shift(1) / df['Adj Close'].shift(1))
+df['PnL'] = pd.DataFrame(df['Shares'] * (df['Adj Close'] - df['Adj Close'].shift(1)))
+df['End'] = pd.DataFrame(df['End'].shift(1) + df['PnL'])
 plt.figure(figsize=(16,8))
-plt.plot(dataset['PnL'])
+plt.plot(df['PnL'])
 plt.title('Profit and Loss for Daily')
 plt.xlabel('Date')
 plt.ylabel('Price')
