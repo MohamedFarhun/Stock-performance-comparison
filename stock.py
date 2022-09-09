@@ -335,14 +335,6 @@ ax = sns.distplot(data_binom,kde=False,color='skyblue',hist_kws={"linewidth": 15
 ax.set(xlabel='Binomial Distribution', ylabel='Frequency')
 st.pyplot(plt)
 
-mu = dataset['Returns'].mean()
-dist = poisson.rvs(mu=mu, loc=0, size=1000)
-print("Mean: %g" % np.mean(dataset['Returns']))
-print("SD: %g" % np.std(dataset['Returns'], ddof=1))
-plt.hist(dist, bins=10)
-plt.title("Poisson Distribution Curve")
-st.pyplot(plt)
-
 st.header('SNS Pairplot')
 sac=sns.pairplot(df, kind="scatter")
 st.pyplot(sac)
