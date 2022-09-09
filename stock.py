@@ -90,7 +90,7 @@ start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
 df= yf.download(dropdown,start,end)
 plt = go.Figure(data=[go.Candlestick(x=df.index,open=df['Open'],high=df['High'],low=df['Low'],close=df['Close'])])
-st.pyplot(plt)
+st.bar_chart(plt)
 
 
 st.title('Stock Price Predictions-Accuracy Score')
