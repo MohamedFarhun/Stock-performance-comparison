@@ -329,7 +329,7 @@ data_binom = binom.rvs(n=len(dataset['Adj Close']),p=0.5,size=1000)
 plt.figure(figsize=(16,10))
 ax = sns.distplot(data_binom,kde=False,color='skyblue',hist_kws={"linewidth": 15,'alpha':1})
 ax.set(xlabel='Binomial Distribution', ylabel='Frequency')
-
+st.pyplot(plt)
 
 
 
