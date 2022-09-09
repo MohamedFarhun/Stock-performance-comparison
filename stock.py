@@ -215,9 +215,9 @@ intercept=linregression.intercept_
 st.write('Intercept of {} is:-'.format(dropdown),intercept)
 Slope=linregression.coef_
 st.write('Slope of {} is:-'.format(dropdown),Slope)
-predicted_value=linregression.predict(X_train)
+plt.plot(X_train,linregression.predict(X_train),'r')
 st.subheader('Predicted graph')
-st.line_chart(predicted_value)
+st.pyplot(plt)
 
 st.title('Stock Statistics')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
