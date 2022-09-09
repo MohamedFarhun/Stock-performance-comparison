@@ -91,8 +91,8 @@ start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
 df = yf.download(dropdown,start,end)
 dfm = yf.download(market,start,end)
-new_df = pd.DataFrame({symbol : df['Adj Close'], market : dfm['Adj Close']}, index=df.index)
-new_df[['stock_returns','market_returns']] = new_df[[symbol,market]] / new_df[[symbol,market]].shift(1) -1
+new_df = pd.DataFrame({dropdown : df['Adj Close'], market : dfm['Adj Close']}, index=df.index)
+new_df[['stock_returns','market_returns']] = new_df[[dropdown,market]] / new_df[[dropdown,market]].shift(1) -1
 new_df = new_df.dropna()
 covmat = np.cov(new_df["stock_returns"],new_df["market_returns"])
 beta = covmat[0,1]/covmat[1,1]
