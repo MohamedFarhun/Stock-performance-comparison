@@ -296,6 +296,16 @@ plot_normal(x)
 plot_normal(x, cdf=True)
 st.pyplot(plt)
 
+mu, std = norm.fit(dataset['Returns'])
+plt.hist(dataset['Returns'], bins=25, alpha=0.6, color='g')
+xmin, xmax = plt.xlim()
+x = np.linspace(xmin, xmax, 100)
+p = norm.pdf(x, mu, std)
+plt.plot(x, p, 'k', linewidth=2)
+title = "Fit results: mu = %.2f,  std = %.2f" % (mu, std)
+plt.title(title)
+st.pyplot(plt)
+
 
 
 
