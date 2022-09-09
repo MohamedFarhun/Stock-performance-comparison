@@ -89,8 +89,8 @@ dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
 df= yf.download(dropdown,start,end)
-fig = go.Figure(data=[go.Candlestick(x=df.index,open=df['Open'],high=df['High'],low=df['Low'],close=df['Close'])])
-st.pyplot(fig)
+go = go.Figure(data=[go.Candlestick(x=df.index,open=df['Open'],high=df['High'],low=df['Low'],close=df['Close'])])
+st.pyplot(go)
 
 
 st.title('Stock Price Predictions-Accuracy Score')
