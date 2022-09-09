@@ -293,7 +293,6 @@ def plot_normal(x_range, mu=0, sigma=1, cdf=False, **kwargs):
     plt.plot(x, y, **kwargs)
 x = np.linspace(x_min, x_max, 100)
 plt.plot(x)
-plt.plot(x, cdf=True)
 st.pyplot(plt)
 
 mu, std = norm.fit(dataset['Returns'])
