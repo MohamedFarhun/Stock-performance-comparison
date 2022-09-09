@@ -220,6 +220,7 @@ st.write('Median_high of {} is:-'.format(dropdown),median_high)
 st.write('Median_grouped of {} is:-'.format(dropdown),median_grouped)
 Standard_deviation=returns.std()
 st.write('Standard_deviation of {} is:-'.format(dropdown),Standard_deviation)
+T = len(returns)
 init_price = df['Adj Close'][0]
 final_price = df['Adj Close'][T]
 st.write('init_price of {} is:-'.format(dropdown),init_price)
