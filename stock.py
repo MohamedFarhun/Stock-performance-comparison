@@ -22,7 +22,7 @@ from scipy.stats import expon
 import seaborn as sns
 
 
-st.title('Stock Market Prediction yfinance-using ML')
+st.title('Stock Market Analysis Using Machine Learning')
 
 def add_bg_from_url():
     st.markdown(f"""
