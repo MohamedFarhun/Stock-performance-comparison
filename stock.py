@@ -262,7 +262,6 @@ if pvalue > 0.05:
     st.write('The returns are likely normal')
 else:
     st.write('The returns are likely not normal.')
-    return None;
 
   
 st.title('Stock datascience-analysis')
