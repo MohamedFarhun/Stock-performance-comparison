@@ -84,15 +84,14 @@ data = yf.download(dropdown,start,end)['Adj Close']
 st.line_chart(data)
 
 st.title('Basic Statistics in Python-Stock market')
-tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
-dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
+symbol = 'BTC-USD'
 market = '^GSPC'
 start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
-df = yf.download(tickers,start,end)
+df = yf.download(symbol,start,end)
 dfm = yf.download(market,start,end)
-new_df = pd.DataFrame({tickers : df['Adj Close'], market : dfm['Adj Close']}, index=df.index)
-new_df[['stock_returns','market_returns']] = new_df[[tickers,market]] / new_df[[tickers,market]].shift(1) -1
+new_df = pd.DataFrame({symbol : df['Adj Close'], market : dfm['Adj Close']}, index=df.index)
+new_df[['stock_returns','market_returns']] = new_df[[symbol,market]] / new_df[[symbol,market]].shift(1) -1
 new_df = new_df.dropna()
 covmat = np.cov(new_df["stock_returns"],new_df["market_returns"])
 beta = covmat[0,1]/covmat[1,1]
