@@ -98,9 +98,9 @@ dataset['PnL'] = dataset['Shares'] * (dataset['Adj Close'] - dataset['Adj Close'
 dataset['End'] = dataset['End'] + dataset['PnL']
 st.line_chart(dataset)
 
-st.title('Stock Price Predictions')
+st.title('Stock Price Predictions-Accuracy Score')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
-dropdown=st.radio('Pick your assets',tickers)
+dropdown = st.selectbox('Choose any one to have analysis',('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN'),key=13)
 start = st.date_input('Start',dt.date(2021,8, 14))
 end = st.date_input('end',dt.date(2022,8, 15))
 df= yf.download(dropdown,start,end)
@@ -129,6 +129,7 @@ df= yf.download(dropdown,start,end)
 barchart=df["Adj Close"].pct_change()
 st.bar_chart(barchart)
 Adjclose=df["Adj Close"].pct_change().std()
+st.header('Standard deviation')
 st.write('Standard deviation of {} is:-'.format(dropdown),Adjclose)
 st.header('Value at risk-return')
 returns = df["Adj Close"].pct_change().dropna()
