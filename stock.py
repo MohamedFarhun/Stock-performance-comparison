@@ -101,15 +101,13 @@ plt.plot(df['PnL'])
 plt.title('Profit and Loss for Daily')
 plt.xlabel('Date')
 plt.ylabel('Price')
-st.pyplot(plt)
-plt.close()
-plt.figure(figsize=(16,8))
-plt.plot(df['End'])
-plt.title('Ending Value for Daily')
-plt.xlabel('Date')
-plt.ylabel('Price')
-st.pyplot(plt)
-plt.close()
+Shares = round(int(float(Start) / dataset['Adj Close'][0]),1)
+Purchase_Price = dataset['Adj Close'][0] 
+Current_Value = dataset['Adj Close'][-1] 
+Purchase_Cost = Shares * Purchase_Price
+Current_Value = Shares * Current_Value
+Profit_or_Loss = Current_Value - Purchase_Cost 
+st.write(' Profit or Loss of $%.2f' % ,Profit_or_Loss)
 
 st.title('Stock Price Predictions-Accuracy Score')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
