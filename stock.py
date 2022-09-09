@@ -201,7 +201,16 @@ Slope=linregression.coef_
 st.write('Slope of {} is:-'.format(dropdown),Slope)
 predicted_value=linregression.predict(X_train)
 st.subheader('Predicted graph')
-st.line_chart(predicted_value)
+df = pd.DataFrame(np.random.randn(200, 3),columns=['X_test', 'y_test', 'y_pred'])
+st.vega_lite_chart(df, {
+     'mark': {'type': 'circle', 'tooltip': True},
+     'encoding': {
+         'x': {'field': 'a', 'type': 'quantitative'},
+         'y': {'field': 'b', 'type': 'quantitative'},
+         'size': {'field': 'c', 'type': 'quantitative'},
+         'color': {'field': 'c', 'type': 'quantitative'},
+     },
+ })
 
 st.title('Stock Statistics')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
