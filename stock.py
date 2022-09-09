@@ -308,6 +308,8 @@ plt.plot(x, p, 'k', linewidth=2)
 title = "Fit results: mu = %.2f,  std = %.2f" % (mu, std)
 plt.title(title)
 st.pyplot(plt)
+break;
+
 df2= yf.download(dropdown,start,end)
 stock_ret = df['Adj Close'].pct_change().dropna()
 mkt_ret = df2['Adj Close'].pct_change().dropna()
@@ -321,6 +323,7 @@ p = gamma.pdf(x, alpha, scale=1/beta)
 plt.plot(x, p, 'k', linewidth=2)
 plt.title("Gamma Distribution for Stock")
 st.pyplot(plt)
+break;
 
 n = 10 
 p = 0.5 
@@ -332,6 +335,7 @@ plt.title("Binomial Distribution")
 ax = sns.distplot(data_binom,kde=False,color='skyblue',hist_kws={"linewidth": 15,'alpha':1})
 ax.set(xlabel='Binomial Distribution', ylabel='Frequency')
 st.pyplot(plt)
+break;
 
 mu = dataset['Returns'].mean()
 dist = poisson.rvs(mu=mu, loc=0, size=1000)
