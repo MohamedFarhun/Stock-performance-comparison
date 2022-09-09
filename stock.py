@@ -253,8 +253,8 @@ skew=stats.skew(returns)
 st.write('Skew of {} is:-'.format(dropdown),skew)
 kurtosis=stats.kurtosis(returns)
 st.write('Excess Kurtosis of {} is:-'.format(dropdown),kurtosis)
-plt.hist(returns, 30); 
-st.pyplot(plt)
+hist=plt.hist(returns, 30); 
+st.pyplot(hist)
 st.write('Excess Kurtosis of {} is:-'.format(dropdown),kurtosis)
 _, pvalue, _, _ = jarque_bera(returns)
 st.write('The returns of {} :-'.format(dropdown))
