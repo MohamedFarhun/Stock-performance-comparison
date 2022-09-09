@@ -265,7 +265,8 @@ tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
 dropdown = st.selectbox('Choose any one to have analysis',('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN'),key=12)
 start = st.date_input('Start',dt.date(2021,8, 21))
 end = st.date_input('end',dt.date(2022,8, 22))
-dataset= yf.download(dropdown,start,end)
+dataset= yf.download(dropdown,start,end)['Adj Close']
+dataset['Returns'] = dataset['Adj Close'].pct_change()
 mean=dataset.mean()
 median=dataset.median()
 mode=dataset.mode()
