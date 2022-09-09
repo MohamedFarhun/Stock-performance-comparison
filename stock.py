@@ -88,13 +88,14 @@ dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
 df= yf.download(dropdown,start,end)['Adj Close']
+df=df.shift(1, axis = 0)
 Start = 5000
 df['Shares'] = 0
 df['PnL'] = 0
 df['End'] = Start
-df['Shares'] = pd.DataFrame(df['End'].shift(1) / df['Adj Close'].shift(1))
-df['PnL'] = pd.DataFrame(df['Shares'] * (df['Adj Close'] - df['Adj Close'].shift(1)))
-df['End'] = pd.DataFrame(df['End'].shift(1) + df['PnL'])
+df['Shares'] = df['End'] / df['Adj Close']
+df['PnL'] = df['Shares'] * (df['Adj Close'] - df['Adj Close'])
+df['End'] = df['End'] + df['PnL'])
 plt.figure(figsize=(16,8))
 plt.plot(df['PnL'])
 plt.title('Profit and Loss for Daily')
