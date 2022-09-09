@@ -333,17 +333,6 @@ plt.title('Poisson Distribution Curve')
 st.pyplot(plt)
 plt.close()
 
-countIncrease = dataset[dataset.Increase_Decrease == 1].Increase_Decrease.count()
-countAll = dataset.Increase_Decrease.count()
-Increase_dist = bernoulli(countIncrease / countAll)
-_, ax = plt.subplots(1, 1)
-ax.vlines(0, 0, Increase_dist.pmf(0), colors='r', linestyles='-', lw=5, label="probability of decrease")
-ax.vlines(1, 0, Increase_dist.pmf(1), colors='b', linestyles='-', lw=5, label="probability of increase")
-ax.legend(loc='best', frameon=False)
-plt.title("Bernoulli distribution of increase variable")
-st.pyplot(plt)
-plt.close()
-
 n = 10 
 p = 0.5 
 k = np.arange(0,21) 
