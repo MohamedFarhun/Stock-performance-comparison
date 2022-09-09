@@ -252,8 +252,8 @@ st.write('Harmonic_mean of {} is:-'.format(dropdown),Harmonic_mean)
 skew=stats.skew(returns)
 st.write('Skew of {} is:-'.format(dropdown),skew)
 kurtosis=stats.kurtosis(returns)
-plt1.hist(returns, 30); 
-st.pyplot(plt1)
+plt.hist(returns, 30); 
+st.pyplot(plt)
 st.write('Excess Kurtosis of {} is:-'.format(dropdown),kurtosis)
 xs = np.linspace(-6,6, 1257)
 normal = stats.norm.pdf(xs)
