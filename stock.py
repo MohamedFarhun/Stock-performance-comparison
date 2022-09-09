@@ -9,6 +9,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from pandas.plotting import scatter_matrix
 import math
+import plotly.graph_objs as go
 import statistics as sp
 import scipy.stats as stats
 from scipy.stats.mstats import gmean
@@ -82,27 +83,15 @@ end = dt.date.today()
 data = yf.download(dropdown,start,end)['Adj Close']
 st.line_chart(data)
 
-st.title('Profit and Loss in Trading')
+st.title('Stock  Candlestick Chart')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
 dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
 df= yf.download(dropdown,start,end)
-Start = 5000
-df['Shares'] = 0
-df['PnL'] = 0
-df['End'] = Start
-df['Adj Close']=np.random.rand(252)
-df['Shares'] = df['End'] / df['Adj Close']
-df['PnL'] = df['Shares'] * (df['Adj Close'] - df['Adj Close'])
-df['End'] = df['End'] + df['PnL']
-Shares = round(int(float(Start) / df['Adj Close'][0]),1)
-Purchase_Price = df['Adj Close'][0] 
-Current_Value = df['Adj Close'][-1] 
-Purchase_Cost = Shares * Purchase_Price
-Current_Value = Shares * Current_Value
-Profit_or_Loss = Current_Value - Purchase_Cost 
-st.write(' Profit or Loss of ',Profit_or_Loss)
+fig = go.Figure(data=[go.Candlestick(x=df.index,open=df['Open'],high=df['High'],low=df['Low'],close=df['Close'])])
+st.pyplot(fig)
+
 
 st.title('Stock Price Predictions-Accuracy Score')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
