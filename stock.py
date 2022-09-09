@@ -107,7 +107,7 @@ Current_Value = df['Adj Close'][-1]
 Purchase_Cost = Shares * Purchase_Price
 Current_Value = Shares * Current_Value
 Profit_or_Loss = Current_Value - Purchase_Cost 
-st.write(' Profit or Loss of {} $%.2f',Profit_or_Loss)
+st.write(' Profit or Loss of ',Profit_or_Loss)
 
 st.title('Stock Price Predictions-Accuracy Score')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
