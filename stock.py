@@ -218,6 +218,7 @@ plt.scatter(X_train,y_train)
 ax=plt.plot(X_train,linregression.predict(X_train),'r')
 st.subheader('Predicted graph')
 st.pyplot(plt)
+close()
 
 st.title('Stock Statistics')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
