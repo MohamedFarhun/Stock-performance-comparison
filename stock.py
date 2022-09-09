@@ -115,9 +115,10 @@ st.pyplot(plt)
 plt.close()
 X = np.array(df['Open']).reshape(-1,1)
 y = np.array(df['Adj Close'])
-lr = LinearRegression().fit(X, y)
-lr.score(X, y)
-st.write('Linear regression accuracy score is:-',lr)
+lr = LinearRegression()
+fit=lr.fit(X, y)
+fit=lr.score(X, y)
+st.write('Linear regression accuracy score is:-',fit)
 
 
 st.title('Stock Price Predictions-Accuracy Score')
