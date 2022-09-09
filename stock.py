@@ -232,3 +232,7 @@ final_price_as_computed_with_RG=init_price*(1 + R_G)**T
 st.write('final_price_as_computed_with_RG of {} is:-'.format(dropdown),final_price_as_computed_with_RG)
 Harmonic_mean=len(returns)/np.sum(1.0/returns)
 st.write('Harmonic_mean of {} is:-'.format(dropdown),Harmonic_mean)
+skew=stats.skew(returns)
+st.write('skew of {} is:-'.format(dropdown),skew)
+fig = ff.create_distplot( skew, mean, median)
+st.plotly_chart(fig, use_container_width=True)
