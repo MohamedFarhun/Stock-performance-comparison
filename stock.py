@@ -88,7 +88,7 @@ dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
 df= yf.download(dropdown,start,end)
-df=df.shift(1, axis = 0)
+df=df.shift(-2, axis = 1)
 Start = 5000
 df['Shares'] = 0
 df['PnL'] = 0
