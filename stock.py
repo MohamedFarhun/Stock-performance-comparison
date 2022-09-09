@@ -201,12 +201,12 @@ Slope=linregression.coef_
 st.write('Slope of {} is:-'.format(dropdown),Slope)
 predicted_value=linregression.predict(X_train)
 st.subheader('Predicted graph')
-df = pd.DataFrame(np.random.randn(200, 3),columns=['X_test', 'y_test', 'y_pred'])
+df = pd.DataFrame(np.random.randn(200, 3),columns=['X_test', 'y_test', 'predicted_value'])
 st.vega_lite_chart(df, {
      'mark': {'type': 'circle', 'tooltip': True},
      'encoding': {
-         'x': {'field': 'a', 'type': 'quantitative'},
-         'y': {'field': 'b', 'type': 'quantitative'},
+         'x': {'field': 'X_test', 'type': 'quantitative'},
+         'y': {'field': 'y_test', 'type': 'quantitative'},
          'size': {'field': 'c', 'type': 'quantitative'},
          'color': {'field': 'c', 'type': 'quantitative'},
      },
