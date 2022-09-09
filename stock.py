@@ -84,13 +84,40 @@ data = yf.download(dropdown,start,end)['Adj Close']
 st.line_chart(data)
 
 st.title('Stock  Candlestick Chart')
-tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
+df = yf.download('TSLA')
+df.to_csv('TSLA.csv')
+tickers=['TSLA']
 dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
 df= yf.download(dropdown,start,end)
-plt = go.Figure(data=[go.Candlestick(x=df.index,open=df['Open'],high=df['High'],low=df['Low'],close=df['Close'])])
-st.bar_chart(plt)
+def get_candlestick_chart(df: pd.DataFrame):
+    layout = go.Layout(
+        title = 'TSLA Stock Price',
+        xaxis = {'title': 'Date'},
+        yaxis = {'title': 'Price'},
+    ) 
+    fig = go.Figure(
+        layout=layout,
+        data=[
+            go.Candlestick(
+                x = df['Date'],
+                open = df['Open'], 
+                high = df['High'],
+                low = df['Low'],
+                close = df['Close'],
+                name = 'Candlestick chart'
+            ),
+        ]
+    )
+    
+    fig.update_xaxes(rangebreaks = [{'bounds': ['sat', 'mon']}])
+    return fig
+
+if __name__ == '__main__':
+    df = pd.read_csv('TSLA.csv')
+    fig = get_candlestick_chart(df)
+    fig.show()
 
 
 st.title('Stock Price Predictions-Accuracy Score')
