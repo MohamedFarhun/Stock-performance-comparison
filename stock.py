@@ -92,15 +92,10 @@ Start = 5000
 df['Shares'] = 0
 df['PnL'] = 0
 df['End'] = Start
-df['Adj Close']=292.848389	
+df['Adj Close']=[292.848389,292.089996,291.320007]
 df['Shares'] = df['End'] / df['Adj Close']
 df['PnL'] = df['Shares'] * (df['Adj Close'] - df['Adj Close'])
 df['End'] = df['End'] + df['PnL']
-plt.figure(figsize=(16,8))
-plt.plot(df['PnL'])
-plt.title('Profit and Loss for Daily')
-plt.xlabel('Date')
-plt.ylabel('Price')
 Shares = round(int(float(Start) / df['Adj Close'][0]),1)
 Purchase_Price = df['Adj Close'][0] 
 Current_Value = df['Adj Close'][-1] 
