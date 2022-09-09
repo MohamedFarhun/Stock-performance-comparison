@@ -101,9 +101,9 @@ plt.plot(df['PnL'])
 plt.title('Profit and Loss for Daily')
 plt.xlabel('Date')
 plt.ylabel('Price')
-Shares = round(int(float(Start) / dataset['Adj Close'][0]),1)
-Purchase_Price = dataset['Adj Close'][0] 
-Current_Value = dataset['Adj Close'][-1] 
+Shares = round(int(float(Start) / df['Adj Close'][0]),1)
+Purchase_Price = df['Adj Close'][0] 
+Current_Value = df['Adj Close'][-1] 
 Purchase_Cost = Shares * Purchase_Price
 Current_Value = Shares * Current_Value
 Profit_or_Loss = Current_Value - Purchase_Cost 
