@@ -13,6 +13,7 @@ import statistics as sp
 import scipy.stats as stats
 from scipy.stats.mstats import gmean
 from statsmodels.stats.stattools import jarque_bera
+from scipy.stats import norm
 
 
 st.title('Stock performance comparison')
@@ -257,3 +258,26 @@ if pvalue > 0.05:
     st.write('The returns are likely normal')
 else:
     st.write('The returns are likely not normal.')
+
+  
+st.title('Stock datascience-analysis')
+tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
+dropdown = st.selectbox('Choose any one to have analysis',('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN'),key=12)
+start = st.date_input('Start',dt.date(2021,8, 21))
+end = st.date_input('end',dt.date(2022,8, 22))
+dataset= yf.download(dropdown,start,end)
+mean=dataset.mean()
+median=dataset.median()
+mode=dataset.mode()
+min=dataset['Returns'].min()
+max = dataset['Returns'].max()
+standard_deviation=dataset.std()
+mu = dataset['Returns'].mean()
+sigma = dataset['Returns'].std()
+s =norm.pdf(mu, sigma)
+st.line_chart(s)
+
+
+
+
+
