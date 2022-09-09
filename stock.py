@@ -235,8 +235,5 @@ Harmonic_mean=len(returns)/np.sum(1.0/returns)
 st.write('Harmonic_mean of {} is:-'.format(dropdown),Harmonic_mean)
 skew=stats.skew(returns)
 st.write('Skew of {} is:-'.format(dropdown),skew)
-skew=[[-0.1027459789512071,-0.10335770981087275,-0.02740561723451349]]
-mean=[[0.0018702534040878648,0.0007887973171911721,-3.2464661524218406]]
-median=[[0.0031006472789958384,0.0005020712254051318,0]]
-fig = ff.create_distplot( skew, mean, median)
-st.plotly_chart(fig, use_container_width=True)
+chart_data = pd.DataFrame(np.random.randn(200, 3),columns=['skew', 'mean', 'median'])
+st.line_chart(chart_data)
