@@ -12,7 +12,7 @@ import math
 import statistics as sp
 import scipy.stats as stats
 from scipy.stats.mstats import gmean
-import plotly.figure_factory as ff
+from statsmodels.stats.stattools import jarque_bera
 
 
 st.title('Stock performance comparison')
@@ -201,16 +201,7 @@ Slope=linregression.coef_
 st.write('Slope of {} is:-'.format(dropdown),Slope)
 predicted_value=linregression.predict(X_train)
 st.subheader('Predicted graph')
-dataset = pd.DataFrame(np.random.randn(200, 3),columns=['X_test', 'y_test', 'predicted_value'])
-st.vega_lite_chart(dataset, {
-     'mark': {'type': 'circle', 'tooltip': True},
-     'encoding': {
-         'x': {'field': 'X_test', 'type': 'quantitative'},
-         'y': {'field': 'y_test', 'type': 'quantitative'},
-         'size': {'field': 'c', 'type': 'quantitative'},
-         'color': {'field': 'c', 'type': 'quantitative'},
-     },
- })
+st.line_chart(predicted_value)
 
 st.title('Stock Statistics')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
@@ -250,3 +241,8 @@ st.area_chart(chart_data)
 st.bar_chart(chart_data)
 kurtosis=stats.kurtosis(returns)
 st.write('Kurtosis of {} is:-'.format(dropdown),kurtosis)
+_, pvalue, _, _ = jarque_bera(returns)
+if pvalue > 0.05:
+    st.write('The returns are likely normal')
+else:
+    st.write('The returns are likely not normal.')
