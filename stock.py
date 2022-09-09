@@ -242,6 +242,7 @@ st.bar_chart(chart_data)
 kurtosis=stats.kurtosis(returns)
 st.write('Kurtosis of {} is:-'.format(dropdown),kurtosis)
 _, pvalue, _, _ = jarque_bera(returns)
+st.write('The returns of {}'.format(dropdown))
 if pvalue > 0.05:
     st.write('The returns are likely normal')
 else:
