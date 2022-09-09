@@ -290,7 +290,7 @@ def plot_normal(x_range, mu=0, sigma=1, cdf=False, **kwargs):
         y = norm.cdf(x, mu, sigma)
     else:
         y = norm.pdf(x, mu, sigma)
-    plt.plot(x, y, **kwargs,title='Returns in line graph')
+    plt.plot(x, y, **kwargs)
 x = np.linspace(x_min, x_max, 100)
 plot_normal(x, -2, 1, color='red', lw=2, ls='-', alpha=0.5)
 plot_normal(x, 2, 1.2, color='blue', lw=2, ls='-', alpha=0.5)
