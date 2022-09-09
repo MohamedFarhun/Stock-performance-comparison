@@ -88,11 +88,11 @@ dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
 df= yf.download(dropdown,start,end)
-df=df.shift(-2, axis = 1)
 Start = 5000
 df['Shares'] = 0
 df['PnL'] = 0
 df['End'] = Start
+df['Adj Close']=292.848389	
 df['Shares'] = df['End'] / df['Adj Close']
 df['PnL'] = df['Shares'] * (df['Adj Close'] - df['Adj Close'])
 df['End'] = df['End'] + df['PnL']
