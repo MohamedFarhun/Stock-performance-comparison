@@ -343,6 +343,7 @@ plt.hist(dist, bins=10)
 plt.title("Poisson Distribution Curve")
 st.pyplot(plt)
 
+market = 'TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN'
 dataset1 = yf.download(dropdown,start,end)
 dataset2 = yf.download(market,start,end)
 stock_ret = dataset1['Adj Close'].pct_change().dropna()
