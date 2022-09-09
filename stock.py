@@ -85,7 +85,7 @@ st.line_chart(data)
 
 st.title('Basic Statistics in Python-Stock market')
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
-dropdown=st.multiselect('Pick your assets',tickers,key=4,default='TSLA')
+dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
 market = '^GSPC'
 start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
