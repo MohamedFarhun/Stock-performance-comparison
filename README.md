@@ -1,5 +1,4 @@
 # Stock-performance-comparison
-<img src="Python.PNG">
 
 # Python for Stock Trading and Investment
 
