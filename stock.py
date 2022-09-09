@@ -83,42 +83,22 @@ end = dt.date.today()
 data = yf.download(dropdown,start,end)['Adj Close']
 st.line_chart(data)
 
-st.title('Stock  Candlestick Chart')
-df = yf.download('TSLA')
-df.to_csv('TSLA.csv')
-tickers=['TSLA']
-dropdown=st.multiselect('Pick your assets',tickers,key=5,default='TSLA')
+st.title('Basic Statistics in Python-Stock market')
+tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
+dropdown=st.multiselect('Pick your assets',tickers,key=4,default='TSLA')
+market = '^GSPC'
 start = st.date_input('Start',dt.date(2021,8, 13))
 end = st.date_input('end',dt.date(2022,8, 14))
-df= yf.download(dropdown,start,end)
-def get_candlestick_chart(df: pd.DataFrame):
-    layout = go.Layout(
-        title = 'TSLA Stock Price',
-        xaxis = {'title': 'Date'},
-        yaxis = {'title': 'Price'},
-    ) 
-    fig = go.Figure(
-        layout=layout,
-        data=[
-            go.Candlestick(
-                x = df['Date'],
-                open = df['Open'], 
-                high = df['High'],
-                low = df['Low'],
-                close = df['Close'],
-                name = 'Candlestick chart'
-            ),
-        ]
-    )
-    
-    fig.update_xaxes(rangebreaks = [{'bounds': ['sat', 'mon']}])
-    return fig
-
-if __name__ == '__main__':
-    df = pd.read_csv('TSLA.csv')
-    fig = get_candlestick_chart(df)
-    fig.show()
-
+df = yf.download(dropdown,start,end)
+dfm = yf.download(market,start,end)
+new_df = pd.DataFrame({symbol : df['Adj Close'], market : dfm['Adj Close']}, index=df.index)
+new_df[['stock_returns','market_returns']] = new_df[[symbol,market]] / new_df[[symbol,market]].shift(1) -1
+new_df = new_df.dropna()
+covmat = np.cov(new_df["stock_returns"],new_df["market_returns"])
+beta = covmat[0,1]/covmat[1,1]
+alpha= np.mean(new_df["stock_returns"])-beta*np.mean(new_df["market_returns"])
+st.write('Beta value of {} is :-',beta)
+st.write('Alpha value of {} is:-',alpha)
 
 st.title('Stock Price Predictions-Accuracy Score')
 tickers=['TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN']
