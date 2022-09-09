@@ -343,7 +343,7 @@ plt.hist(dist, bins=10)
 plt.title("Poisson Distribution Curve")
 st.pyplot(plt)
 
-dataset1 = yf.download(symbol,start,end)
+dataset1 = yf.download(dropdown,start,end)
 dataset2 = yf.download(market,start,end)
 stock_ret = dataset1['Adj Close'].pct_change().dropna()
 mkt_ret = dataset2['Adj Close'].pct_change().dropna()
