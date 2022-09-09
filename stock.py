@@ -11,6 +11,7 @@ from pandas.plotting import scatter_matrix
 import math
 import statistics as sp
 import scipy.stats as stats
+from scipy.stats.mstats import gmean
 
 
 st.title('Stock performance comparison')
