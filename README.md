@@ -23,17 +23,25 @@ You can call daisi functions in the following environments:
 - R
 - cURL
 ## Python
-See the docs for pyDaisi installation and authentication.
+### See the docs for pyDaisi installation and authentication.
 
 import pydaisi as pyd
-stock_market_analysis_using_machine_learning = pyd.Daisi("farhun/Stock Market Analysis Using Machine Learning")
-Undocumented endpoints
-Consider adding docstrings for these functions in your code.
 
-add_bg_from_url
+
+stock_market_analysis_using_machine_learning = pyd.Daisi("farhun/Stock Market Analysis Using Machine Learning")
+
+
+### Undocumented endpoints
+### Consider adding docstrings for these functions in your code.
+
+### add_bg_from_url
+
+
 stock_market_analysis_using_machine_learning.add_bg_from_url().value
 ## R
-add_bg_from_url
+### add_bg_from_url
+
+
 stock_market_analysis_using_machine_learning$add_bg_from_url()$value()
 
 ## Author  
