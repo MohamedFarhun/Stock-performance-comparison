@@ -17,6 +17,25 @@ https://www.python.org/
 <h3 align="left">Tools:</h3>
 <p align="left"> </a> <a href="https://streamlit.io/" target="_blank"> <img src="https://www.jrieke.com/assets/images/streamlit.png" alt="Streamlit" width="100" height="100"/> </a> <a href="https://colab.research.google.com/" target="_blank"> <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--R8l6dUcL--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z4kjueiseln5p3s6ks3h.png" alt="colab" width="100" height="100"/> </a><a href="https://www.jetbrains.com/pycharm/" target="_blank"> <img src="https://brandeps.com/logo-download/P/Pycharm-logo-vector-01.svg" alt="Notepad++" width="100" height="100"/> </a> </p>
 
+API CALLS:-
+You can call daisi functions in the following environments:
+- Python
+- R
+- cURL
+## Python
+See the docs for pyDaisi installation and authentication.
+
+import pydaisi as pyd
+stock_market_analysis_using_machine_learning = pyd.Daisi("farhun/Stock Market Analysis Using Machine Learning")
+Undocumented endpoints
+Consider adding docstrings for these functions in your code.
+
+add_bg_from_url
+stock_market_analysis_using_machine_learning.add_bg_from_url().value
+## R
+add_bg_from_url
+stock_market_analysis_using_machine_learning$add_bg_from_url()$value()
+
 ## Author  
 ### Mohamed Farhun M
 
