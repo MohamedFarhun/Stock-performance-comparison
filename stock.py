@@ -29,6 +29,22 @@ def stock_market():
         global stock_market
         if stock_market: return stock_market
 
+with st.sidebar:
+    st.image(stockmarket.jpeg")
+    st.header("TEKKYZZ")
+    st.write("Leader   : MOHAMED FARHUN M")
+    st.write("Member 1 : NANDHAKUMAR S")
+    st.write("Member 2 : DHIVAKAR S")
+    st.subheader("**_Do you like our Project_?**")
+    col1, col2 = st.columns([1,1])
+    with col1:
+        if st.button('Yes'):
+            st.write('Thanks for your valuable feedback...')
+    with col2:
+        if st.button('No'):
+            st.write('Will update our app soon...')        
+        
+        
 def add_bg_from_url():
     st.markdown(f"""
          <style>
