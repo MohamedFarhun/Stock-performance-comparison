@@ -30,7 +30,7 @@ def stock_market():
         if stock_market: return stock_market
 
 with st.sidebar:
-    st.image(stockmarket.jpeg")
+    st.image("stockmarket.jpg")
     st.header("TEKKYZZ")
     st.write("Leader   : MOHAMED FARHUN M")
     st.write("Member 1 : NANDHAKUMAR S")
