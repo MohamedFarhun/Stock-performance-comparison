@@ -17,7 +17,7 @@ https://www.python.org/
 <h3 align="left">Tools:</h3>
 <p align="left"> </a> <a href="https://streamlit.io/" target="_blank"> <img src="https://www.jrieke.com/assets/images/streamlit.png" alt="Streamlit" width="100" height="100"/> </a> <a href="https://colab.research.google.com/" target="_blank"> <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--R8l6dUcL--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z4kjueiseln5p3s6ks3h.png" alt="colab" width="100" height="100"/> </a><a href="https://www.jetbrains.com/pycharm/" target="_blank"> <img src="https://brandeps.com/logo-download/P/Pycharm-logo-vector-01.svg" alt="Notepad++" width="100" height="100"/> </a> </p>
 
-API CALLS:-
+## API CALLS:-
 You can call daisi functions in the following environments:
 - Python
 - R
