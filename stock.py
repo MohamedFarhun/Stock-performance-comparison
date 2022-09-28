@@ -36,7 +36,7 @@ with st.sidebar:
     st.write("Leader     : MOHAMED FARHUN M")
     st.write("Member 1   : NANDHAKUMAR S")
     st.write("Member 2   : DHIVAKAR S")
-    st.video(https://youtube/p7HKvqRI_Bo,start_time=0)
+    st.video('https://youtube/p7HKvqRI_Bo',start_time=0)
     st.sidebar.markdown(
     "Do visit our [Github Repository](https://github.com/MohamedFarhun/Stock-performance-comparison)"
 ) 
