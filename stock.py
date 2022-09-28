@@ -24,6 +24,11 @@ import seaborn as sns
 
 st.title('Stock Market Analysis Using Machine Learning')
 
+def kos_root():
+        """stock_market_analysis_using_machine_learning.add_bg_from_url().value"""
+        global _kos_root
+        if _kos_root: return _kos_root
+
 def add_bg_from_url():
     st.markdown(f"""
          <style>
