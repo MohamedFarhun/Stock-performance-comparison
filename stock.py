@@ -36,6 +36,7 @@ with st.sidebar:
     st.write("Leader     : MOHAMED FARHUN M")
     st.write("Member 1   : NANDHAKUMAR S")
     st.write("Member 2   : DHIVAKAR S")
+    st.subheader("How does stock work?-video analysis")
     video_file = open('stock.mp4', 'rb')
     video_bytes = video_file.read()
     st.video(video_bytes)
