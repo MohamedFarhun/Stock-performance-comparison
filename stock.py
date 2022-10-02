@@ -36,6 +36,9 @@ with st.sidebar:
     st.write("Leader     : MOHAMED FARHUN M")
     st.write("Member 1   : NANDHAKUMAR S")
     st.write("Member 2   : DHIVAKAR S")
+    video_file = open('stock.mp4', 'rb')
+    video_bytes = video_file.read()
+    st.video(video_bytes)
     st.sidebar.markdown(
     "Do visit our [Github Repository](https://github.com/MohamedFarhun/Stock-performance-comparison)"
 ) 
