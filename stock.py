@@ -32,7 +32,7 @@ def stock_market():
 def stock_market_prediction():
         """stock_market_analysis_using_machine_learning.stock_market().value"""
         global stock_market_prediction
-        if stock_market_prediction: return stock_market_prediction
+        if stock_market: return stock_market_prediction
 
 with st.sidebar:
     st.header("STOCK MARKET PREDICTION USING MACHINE LEARNING")
