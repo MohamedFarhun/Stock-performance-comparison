@@ -24,7 +24,67 @@ import seaborn as sns
 
 st.title('Stock Market Analysis Using Machine Learning')
 
-def stock_market(100000):
+def stock_market():
+        """stock_market_analysis_using_machine_learning.add_bg_from_url().value"""
+        global stock_market
+        if stock_market: return stock_market
+        
+
+def stock_market():
+        """stock_market_analysis_using_machine_learning.add_bg_from_url().value"""
+        global stock_market
+        if stock_market: return stock_market
+        
+ 
+def stock_market():
+        """stock_market_analysis_using_machine_learning.add_bg_from_url().value"""
+        global stock_market
+        if stock_market: return stock_market
+        
+
+def stock_market():
+        """stock_market_analysis_using_machine_learning.add_bg_from_url().value"""
+        global stock_market
+        if stock_market: return stock_market
+        
+
+def stock_market():
+        """stock_market_analysis_using_machine_learning.add_bg_from_url().value"""
+        global stock_market
+        if stock_market: return stock_market
+        
+ 
+def stock_market():
+        """stock_market_analysis_using_machine_learning.add_bg_from_url().value"""
+        global stock_market
+        if stock_market: return stock_market
+        
+ 
+def stock_market():
+        """stock_market_analysis_using_machine_learning.add_bg_from_url().value"""
+        global stock_market
+        if stock_market: return stock_market
+        
+ 
+def stock_market():
+        """stock_market_analysis_using_machine_learning.add_bg_from_url().value"""
+        global stock_market
+        if stock_market: return stock_market
+        
+
+def stock_market():
+        """stock_market_analysis_using_machine_learning.add_bg_from_url().value"""
+        global stock_market
+        if stock_market: return stock_market
+        
+
+def stock_market():
+        """stock_market_analysis_using_machine_learning.add_bg_from_url().value"""
+        global stock_market
+        if stock_market: return stock_market
+        
+ 
+def stock_market():
         """stock_market_analysis_using_machine_learning.add_bg_from_url().value"""
         global stock_market
         if stock_market: return stock_market
