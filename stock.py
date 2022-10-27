@@ -20,6 +20,7 @@ from scipy.stats import binom
 from scipy.stats import poisson
 from scipy.stats import expon
 import seaborn as sns
+from signal import signal, SIGPIPE, SIG_DFL
 
 
 st.title('Stock Market Analysis Using Machine Learning')
@@ -55,6 +56,8 @@ def add_bg_from_url():
              background-size: cover}}
              </style>""",unsafe_allow_html=True)
 add_bg_from_url() 
+
+signal=signal(SIGPIPE,SIG_DFL)
 
 tickers=('TSLA','AAPL','MSFT','BTC-USD','ETH-USD','AMD','AMZN')
 
