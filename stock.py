@@ -20,7 +20,7 @@ from scipy.stats import binom
 from scipy.stats import poisson
 from scipy.stats import expon
 import seaborn as sns
-from signal import signal, SIGPIPE, SIG_DFL
+from signals import signal, SIGPIPE, SIG_DFL
 
 
 st.title('Stock Market Analysis Using Machine Learning')
