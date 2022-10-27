@@ -98,6 +98,8 @@ semver==2.13.0
 
 setuptools==63.4.3
 
+signals==0.0.2
+
 six==1.16.0
 
 smmap==5.0.0
