@@ -1,7 +1,6 @@
 import streamlit as st
 import yfinance as yf
 import pandas as pd
-from fbprophet import Prophet
 import matplotlib.pyplot as plt
 import datetime as dt
 import numpy as np
